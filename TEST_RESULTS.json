@@ -1,0 +1,444 @@
+{
+  "environment": "Chromium in-memory DOM/audio harness; mocked storage and external speech/YouTube APIs. Node service-worker unit harness. Not a physical-device or live-deployment test.",
+  "ui_and_logic": [
+    {
+      "check": "Fresh launch and Infinite Self identity",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Optional setup can be skipped",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Four distinct foundations",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No phantom journal entry on launch",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Setup stores name, intention and goal",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Logs are not shared between commitments",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Multiple same-day logs count as one target day",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Rerunning setup retains IDs and log records",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Optional branches persist",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Branch segmentation and parent score",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Immediate navigation flushes journal draft",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Search finds full dated writing",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "History expands untruncated entry",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Wisdom draft retained",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Wisdom composer remains on Wisdom and appends",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "YouTube URL forms recognised",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Unsafe and nonvideo URLs rejected",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Additional video link saved",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "14 existing photos seed Gallery",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Gallery upload decoded and stored through adapter",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Photo favourite and Journal header selection",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Native MP3 plays across tab navigation",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Timer advances across tab navigation",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Dictation pauses audio",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Dictated text appends and saves",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Dictation requires deliberate playback resume",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Completed session is recorded once",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Credited session log is not duplicated",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "YouTube API callback starts session",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Visible YouTube dock persists across in-app tabs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "YouTube pauses when app is hidden",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Hidden YouTube does not automatically resume",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Full backup includes records and local media",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Full backup restores records and media through adapter",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "Legacy records-only format still accepted",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "CSV formula-like text escaped",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: today at 320px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: journal at 320px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: commitments at 320px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: goals at 320px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: meditation at 320px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: wisdom at 320px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: gallery at 320px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: progress at 320px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: help at 320px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: settings at 320px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: today at 390px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: journal at 390px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: commitments at 390px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: goals at 390px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: meditation at 390px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: wisdom at 390px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: gallery at 390px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: progress at 390px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: help at 390px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: settings at 390px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: today at 768px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: journal at 768px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: commitments at 768px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: goals at 768px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: meditation at 768px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: wisdom at 768px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: gallery at 768px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: progress at 768px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: help at 768px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: settings at 768px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: today at 1280px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: journal at 1280px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: commitments at 1280px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: goals at 1280px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: meditation at 1280px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: wisdom at 1280px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: gallery at 1280px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: progress at 1280px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: help at 1280px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No page overflow: settings at 1280px",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "No uncaught JavaScript errors in tested flows",
+      "passed": true,
+      "detail": "[]"
+    }
+  ],
+  "service_worker": [
+    {
+      "check": "All declared app assets precache",
+      "passed": true
+    },
+    {
+      "check": "Worker claims clients and preserves unrelated caches",
+      "passed": true
+    },
+    {
+      "check": "Worker does not activate over drafts without request",
+      "passed": true
+    },
+    {
+      "check": "Explicit update request can activate worker",
+      "passed": true
+    },
+    {
+      "check": "Cached audio handles byte range",
+      "passed": true
+    },
+    {
+      "check": "Invalid cached audio range returns 416",
+      "passed": true
+    },
+    {
+      "check": "Suffix audio range works",
+      "passed": true
+    },
+    {
+      "check": "Missing image is not replaced by app HTML",
+      "passed": true
+    },
+    {
+      "check": "YouTube traffic is not intercepted",
+      "passed": true
+    },
+    {
+      "check": "Application entry falls back offline",
+      "passed": true
+    },
+    {
+      "check": "Help guide is available offline",
+      "passed": true
+    },
+    {
+      "check": "Unknown offline page returns an error, not app HTML",
+      "passed": true
+    },
+    {
+      "check": "Photo served offline with correct content type",
+      "passed": true
+    }
+  ]
+}
