@@ -1,30 +1,22 @@
-# Infinite Self v3.0 — verification record
+# Verification — Infinite Self v3.1
 
 ## Completed checks
-- JavaScript syntax: `app-v3.js` and `service-worker.js` passed Node syntax validation.
-- UI / logic harness: **77 assertions passed**, including fresh/skip setup, stable IDs after rerunning setup, independent logging, weekly-day counting, branch roll-up, journal autosave/history, same-page Wisdom composition, URL validation, gallery file decoding, favourite/page-image selection, backup serialization and restore logic, and CSV text escaping.
-- The UI checks include 40 layout checks: all 10 app pages at 320, 390, 768 and 1280 pixels wide, without global horizontal overflow.
-- Actual Chromium DOM, rendering and native MP3 decoding were used. The included audio continued through in-app navigation without recreating the audio element or resetting the session timer.
-- Dictation integration was exercised using simulated speech-provider result events. YouTube playback state, visible-dock persistence and hidden-page pausing were exercised using API-shaped simulated callbacks.
-- Service-worker unit harness: **13 assertions passed** for precaching all declared files, preserving unrelated caches, explicit upgrade activation, valid/suffix/invalid audio byte ranges, not intercepting YouTube, not substituting HTML for missing images, and cached offline entry/guide/photo responses.
-- All release files were verified to exist, and deployment sizes/SHA-256 hashes were generated for 37 required files.
-- The 14 seed images decode correctly, as do the 180/192/512-pixel install icons. The manifest and application use relative, root-level asset paths.
+**56 automated checks passed; 0 failed** in the final offline Chromium run. The exact checks and their results are in `TEST_RESULTS.json`.
 
-## Important test-environment limits
-The installed Chromium in this environment blocks URL navigation by administrator policy, and downloading another test browser was unavailable. Browser tests therefore loaded the actual application into an in-memory page, with the actual styles/images/audio bytes. Browser localStorage, IndexedDB and file-download destinations were replaced by test adapters. These tests do **not** establish real browser persistence across restarts, live GitHub Pages installation, live YouTube availability, actual microphone recognition or physical-device background playback.
+The harness rendered the actual release HTML/CSS/JavaScript with supplied photos/audio inlined. It exercised Guiding Intention save/edit, preferences and contrast, 320px and 390px mobile layouts, 150% text, all retained screens, native MP3 playback and rate setting, timer continuity, long-text end following, middle edits, a smaller viewport, the Wisdom composer, saved URLs, and JSON/CSV/text export and restore logic. It reported no uncaught application JavaScript exceptions.
 
-The service worker was evaluated in a Node harness with simulated cache/network responses backed by the actual release files. That is a unit test, not a completed browser installation test.
+SoundCloud widget callbacks, YouTube rate callbacks and speech-recognition results were **simulated** using their API shapes. LocalStorage and IndexedDB operations were **simulated in memory** because this offline browser harness has no normal website origin. FileReader/base64/Blob serialisation and restore transformations were exercised. Native audio used the real HTML audio element with the included MP3 data; this was not an audible listening or physical-device test.
 
-No live GitHub repository or deployed URL was supplied for this turn. No claim is made that these files have already been uploaded, installed or tested on Richard's phone.
+## Not verified here
+No live GitHub Pages deployment, actual SoundCloud stream, real YouTube stream, real microphone recognition, native browser storage persistence, installed-PWA upgrade, physical phone keyboard or lock-screen playback was tested. The supplied SoundCloud page and official API documentation were read separately; that is not proof of successful streaming from your deployed site.
 
-## Physical-device acceptance checks after deployment
-1. Export the previous app's records before upload. After the update, confirm those records remain in the same browser/installed-app context.
-2. Open hosted ASSET_CHECK; every required file and all images should pass.
-3. Start Ocean Breath, type in Journal, navigate to other app tabs and return. Confirm playback and elapsed time remain continuous.
-4. Separately test phone lock and another-app switching with an included/local audio file. Device suspension can stop playback or delay target-time stopping.
-5. Start the YouTube reference; confirm the visible player persists across app tabs. Leaving the app should pause it. Test the actual video for embed restrictions.
-6. Test microphone permission, successful dictation, denied-permission fallback and native keyboard dictation on the actual device.
-7. Upload a photo; reload to check real IndexedDB persistence. Export a full backup and restore it in a separate test browser before relying on migration.
-8. Check old installed name/icon behaviour only after backing up; existing shortcuts may need re-adding.
+## Release checks
+JavaScript syntax, local asset paths, manifest references and service-worker pre-cache file existence are checked during packaging. `ASSET_CHECK.html` checks byte counts and hashes at the deployed site. It deliberately does not test external streaming or read private records.
 
-Screenshots in the implementation workspace use explicitly labelled preview/test entries, not Richard's real journal or performance history. No test records are shipped inside the app.
+## Device acceptance test after deployment
+1. Confirm v3.1, original journal entries and Gallery images; do not clear storage.
+2. Edit the Guiding Intention and appearance. Refresh and confirm they persist.
+3. Play SoundCloud, move among Journal/Wisdom/Today and return. Check the same recording continues. Test screen lock separately; an interruption is a platform limitation, not a guaranteed feature.
+4. Try 0.5×, 1×, 1.5× and 2× on an included/permitted native file. Confirm pitch/rate behaviour on your device. Check available YouTube rates; confirm SoundCloud says 1× only.
+5. Type and dictate long entries, including earlier-text edits and an open Wisdom composer. Confirm the keyboard does not obscure the active line.
+6. Make a full private backup and confirm the file saves. Test restore in a separate expendable browser profile before relying on it for moving your only copy of records.

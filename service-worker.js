@@ -1,8 +1,8 @@
-/* Infinite Self v3.0. Cache only this app's known same-origin files. */
+/* Infinite Self v3.1. Cache only this app's known same-origin files. */
 const SCOPE=new URL(self.registration.scope);
 const CACHE_PREFIX='infinite-self-'+encodeURIComponent(SCOPE.pathname)+'-';
-const CACHE=CACHE_PREFIX+'v3.0.0';
-const FILES=["index.html", "app-v3.js", "style-v3.css", "manifest-v3.webmanifest", "manifest.webmanifest", "manifest-v21.webmanifest", "infinite-self-apple-v3.png", "infinite-self-icon-192-v3.png", "infinite-self-icon-512-v3.png", "apple-touch-icon.png", "photos-v3.json", "ocean-v3.mp3", "soft-bell-v3.mp3", "blossoms-v3.jpg", "bluewater-v3.jpg", "candles-v3.jpg", "clouds-v3.jpg", "evening-v3.jpg", "feature-v3.jpg", "foamsun-v3.jpg", "forestlight-v3.jpg", "goldsea-v3.jpg", "horizon-v3.jpg", "sky-v3.jpg", "spray-v3.jpg", "stones-v3.jpg", "wavewide-v3.jpg", "ASSET_CHECK.html", "QUICK_START.html", "GITHUB_UPDATE_GUIDE.html", "QUICK_START.md", "README.md", "GITHUB_UPDATE_GUIDE.md", "CHANGELOG.md", "LOCKED_BRIEF.md", "TECHNICAL_NOTES.md"];
+const CACHE=CACHE_PREFIX+'v3.1.0';
+const FILES=["ASSET_CHECK.html", "CHANGELOG.md", "GITHUB_UPDATE_GUIDE.html", "GITHUB_UPDATE_GUIDE.md", "LOCKED_BRIEF.md", "QUICK_START.html", "QUICK_START.md", "README.md", "START_HERE.html", "START_HERE.md", "TECHNICAL_NOTES.md", "TEST_RESULTS.json", "VERIFICATION.md", "app-v31.js", "apple-touch-icon.png", "blossoms-v3.jpg", "bluewater-v3.jpg", "candles-v3.jpg", "clouds-v3.jpg", "evening-v3.jpg", "feature-v3.jpg", "foamsun-v3.jpg", "forestlight-v3.jpg", "goldsea-v3.jpg", "horizon-v3.jpg", "index.html", "infinite-self-apple-v3.png", "infinite-self-icon-192-v3.png", "infinite-self-icon-512-v3.png", "manifest-v21.webmanifest", "manifest-v3.webmanifest", "manifest-v31.webmanifest", "manifest.webmanifest", "ocean-v3.mp3", "photos-v3.json", "sky-v3.jpg", "soft-bell-v3.mp3", "spray-v3.jpg", "stones-v3.jpg", "style-v31.css", "wavewide-v3.jpg"];
 const absolute=name=>new URL(name,self.registration.scope).href;
 const ALLOWED=new Set(FILES.map(absolute));
 self.addEventListener('install',event=>{

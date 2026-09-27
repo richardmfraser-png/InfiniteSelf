@@ -1,44 +1,44 @@
-# Update your existing GitHub Pages app to Infinite Self v3
+# Update your GitHub Pages app to Infinite Self v3.1
 
-## 1. Protect the current records
-Open the current app and export its JSON backup. Keep that file privately on your device. Do not put it in the GitHub repository. Continue using the same browser/installed app after the update.
+## 1. Make a private backup first
+In the app you currently use, make a **full JSON backup** from Help or Settings and confirm that the file saved. Keep it on your device—not in GitHub. Pause an active meditation before updating.
 
-## 2. Extract this ZIP
-Open `Infinite_Self_GitHub_Update_v3.zip` on your computer. Its contents are flat files, not nested assets folders. You should see `index.html`, `app-v3.js`, `style-v3.css`, photographs, MP3 files, icons, manifests, `service-worker.js` and the guides.
+This update retains the existing records key (`spectacularSpiritJournalV1`), media database (`infinite-self-media-v3`) and install identity. It is not a migration to a new website or account. Continue using the same site and browser/installed-app context.
 
-## 3. Update the SAME publishing folder
-In your existing GitHub repository, open the folder where the currently deployed `index.html` lives. This may be the repository root or a `docs` folder, depending on your existing Pages settings.
+## 2. Extract the update ZIP
+Extract **Infinite_Self_GitHub_Update_v3_1.zip**. The package contains flat files, with no nested assets directory. Upload the extracted files, not the ZIP itself.
 
-Choose **Add file → Upload files**. Drag in ALL extracted files from the package. Replace existing files with matching names and commit the update. Do not drag the ZIP itself or create a new wrapper folder around the files. There is no need to rename the repository.
+## 3. Replace files in the SAME publishing folder
+Open the existing repository folder that contains the live `index.html`—the root or `docs` folder, depending on your Pages configuration. Choose **Add file → Upload files**, upload **all files in this package**, replace matching files, and commit.
 
-If you use Git locally, copy the extracted files into the same publishing directory, then review `git status`, commit, and push. Preserve existing repository configuration such as a `CNAME` file. Do not delete unrelated files.
+The app now loads `app-v31.js`, `style-v31.css` and `manifest-v31.webmanifest`. Uploading only `index.html` is not enough. The package also includes all existing photographs, audio, icons and updated documentation.
 
-## 4. Wait for Pages to publish
-Check the repository's Actions / deployment status. When the Pages deployment succeeds, open the same app address with `?release=3` added to its end. That query is a diagnostic cache-buster, not a new site or storage location.
+Keep repository configuration such as `CNAME`, custom workflows and unrelated files. There is no need to rename the repository or remove old app-v3/style-v3 files. They are no longer referenced by this release. Preserve `.nojekyll` when working with Git locally.
 
-Refresh the page. If an update notice appears, choose **Save and refresh**. Stop an active meditation before refreshing. Do not clear site data to refresh the app.
+## 4. Let Pages deploy, then refresh
+Check the repository's deployment status. After it succeeds, visit your usual app address with `?release=3.1` added to the end (use `&release=3.1` if a query is already present). Refresh and accept **Save and refresh** if the update notice appears. The header must show **v3.1**.
 
-## 5. Check the assets
-At the SAME hosted directory, open `ASSET_CHECK.html`. For example, add `/ASSET_CHECK.html` after the folder portion of your ordinary app address. It lists every required app asset and shows the 14 seed photographs and the icon. All checks should pass.
+The new offline worker waits for a safe refresh rather than forcibly replacing a page while you write. New code/style filenames avoid confusing the old cache with new assets. **Do not clear website data or uninstall the app merely to refresh it.**
 
-If photos fail, check that their exact lowercase `-v3.jpg` filenames are next to `index.html` in the published directory, not only present somewhere else in the repository. GitHub filename case matters. If the check page itself is missing, the wrong folder may have been uploaded or the deployment may not yet have completed.
+## 5. Verify the update
+Open **ASSET_CHECK.html** in the same hosted folder. It should report no missing or mismatched required files and show the 14 photographs and photographic icon. This checker verifies deployment assets—not SoundCloud availability or private data.
 
-## 6. Confirm the app
-The header should say **Infinite Self** and show version **v3.0**. Check that your records remain. In Journal, you should see the balanced-stones photograph, Dictate buttons and an entry-date selector. Gallery should show 14 supplied photos before your own uploads.
+Then verify these controls:
 
-Try an included audio mode while typing in Journal, then return to Meditation and confirm the timer continued. Separately test real-device lock-screen playback: this is browser-dependent. YouTube is intentionally paused when the app is hidden.
+1. Today → Guiding Intention → Edit leads to Settings and keeps your existing text.
+2. Settings → Appearance changes page/cards and text size; your choice survives a refresh.
+3. Settings → Backup, restore & export offers all backup/export tools.
+4. Meditation includes both SoundCloud and YouTube chants. Play SoundCloud online, type in Journal, then return and check continuity. Its speed control should be unavailable at 1×.
+5. Play Ocean Breath at 1.5× or 2× to check the speed feature; compare with a permitted local audio file.
+6. Enter several paragraphs in Journal or Carry to Journal and confirm the insertion point stays visible, including with your phone keyboard open.
 
-## 7. Home-screen name and icon
-The package includes fresh photograph-only icon files and the new app name. Existing shortcuts may retain their old name/icon. Back up first, verify that the hosted asset-check page displays the photograph, then re-add the shortcut only if needed. Do not clear site storage. Storage can differ between Safari, other browsers and installed web apps; keep the backup available to restore.
+## Playback limits to expect
+Embedded SoundCloud is an online stream; a login/consent requirement, ad, regional restriction, network or service change may affect it. The app cannot guarantee screen-lock or background playback. SoundCloud's normal-speed embed remains normal-speed; native/local audio and supported YouTube rates supply the rate-control feature. No playback-rate workaround or remote audio extraction is included.
 
-## Troubleshooting without losing data
-- Old appearance: verify the completed deployment, refresh, then check the update notice.
-- Missing photos: use ASSET_CHECK and correct the file placement or case.
-- Blank app: ensure `app-v3.js` and `style-v3.css` are uploaded beside `index.html`.
-- Audio file missing: upload both `ocean-v3.mp3` and `soft-bell-v3.mp3`.
-- YouTube refuses to play: use Open on YouTube; a video may disallow embedding or require account/region checks.
-- No Dictate support: use the keyboard microphone or type. Visit the HTTPS app, not a local HTML preview.
-- Records appear empty: verify the same site/browser context and use Help → Restore backup. Do not repeatedly reset or erase storage.
+## If something still looks old
+Confirm the deployment completed and that the files are in the publishing folder, not a new wrapper directory. Open ASSET_CHECK directly, then use Save and refresh. Your icon has not been redesigned in this update, so there is normally no reason to remove and reinstall it. Keep your backup ready before changing browser/device/install context.
 
 ## Rollback
-Keep the v2.1 package. To roll back, restore that app's deployment files at the same location and preserve your private backup. The records key remains compatible, but v2.1 does not expose v3's gallery or new media features.
+Retain your previous v3 package and private backup. Re-deploy its files at the same URL if needed; do not erase local storage. v3 will not expose the new SoundCloud preferences, theme controls or new exports.
+
+GitHub's publishing-source instructions: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site

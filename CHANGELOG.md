@@ -1,31 +1,17 @@
-# Infinite Self v3.0 — release changes
+# Infinite Self v3.1 — Changes
 
-## Requested refinements implemented
-1. Renamed Spectacular Spirit Journal to **Infinite Self** throughout the interface, setup, guides, install metadata and exports; retained the existing data key.
-2. Introduced one persistent audio/player dock and a wall-clock-based session timer. In-app tab navigation does not remount the player or reset elapsed time. YouTube remains visible and pauses when hidden. Native/local audio exposes supported device media controls.
-3. Added saved YouTube video links and local audio-file import, with per-device storage and removal.
-4. Replaced the Journal header image with the balanced-stones photo, corrected image orientation, and removed title/badge overlays from page photography.
-5. Added optional browser dictation beside Journal fields and inside the Wisdom composer, with keyboard-dictation fallback and explicit privacy/permission messaging.
-6. Reworked Today: distinct Mind/Body categories, clearer parent/branch typography, weekly ring gauges, daily bars, amounts and recent-entry correction.
-7. Replaced automatic Carry to Journal navigation with a same-page editor: select type/date, type or dictate, append to Journal, keep drafts.
-8. Added a Gallery seeded with **14 already supplied photographs**, favourites, uncropped viewing, per-page image selection and local user uploads. Additional photographs can be added without another code release.
+## Requested refinements
+- Added the supplied SoundCloud Daimoku track beside the original YouTube chant, without copying the recording into the package.
+- Added saved SoundCloud track URLs to the user's existing audio-link library.
+- Kept the SoundCloud widget outside tab rendering; wired play, pause, loop and timer events through its official Widget API.
+- Added per-recording native-audio speeds from 0.5×–2× and the rates supported by the current YouTube video. SoundCloud controls explicitly remain unavailable at 1×.
+- Made Guiding Intention directly editable in Settings and from the Today card, with typing/dictation autosave.
+- Moved the general backup/restore area to Settings and added readable journal .txt and browser-print/PDF exports.
+- Added five colour presets, custom page/card backgrounds, automatically adjusted text contrast and 90%–150% font scaling, all saved locally and included in JSON backups.
+- Added universal active-caret following, bounded growing text areas and mobile viewport-aware scrolling for typing and dictation, including dynamic forms and the Wisdom composer.
 
-## Supporting safeguards
-- Kept optional onboarding, Help, Wisdom categories, Goals/Milestones, mental/physical foundation and branch analytics.
-- Stable commitment IDs and a best-effort pre-v3 copy preserve existing records during migration.
-- Stopped creating empty journal entries merely by opening the app; saved-writing counts now exclude empty entries.
-- Added date-aware journal autosave, full-entry history reading, and entry correction.
-- Added full private backup/restore including local media, plus records-only backup.
-- Added URL validation for saved web/video links and spreadsheet-formula escaping on text CSV fields.
-- Versioned root-level assets, a fresh photographic icon, a scoped offline worker and asset diagnostics.
-- Corrected imported photo orientation and the previous photo-label mismatch between candlelight and forest light.
-- Wisdom video-search links are explicitly labelled as searches rather than hand-picked individual videos.
+## Compatibility
+Existing record IDs, journal data, goals, commitments, personal gallery/audio database and install identity are retained. All 14 photographs, photographic home-screen icon, onboarding, Help, Gallery and progress screens remain. Updated code/style/manifest filenames and a v3.1 service-worker cache are included.
 
-## Not represented as finished capabilities
-- Guaranteed iOS/Android background or lock-screen audio, exact stopping while a browser is suspended, or hidden YouTube playback.
-- Universal microphone recognition or guaranteed offline dictation.
-- Cloud sync, encrypted accounts, server authentication, push reminders, shared gallery or a native App Store release.
-- Downloading or recreating the referenced YouTube chant as an offline recording.
-- Receipt of a new batch of photographs beyond those already uploaded in this chat.
-
-Read VERIFICATION.md for the actual tests and device-specific checks still required.
+## Boundaries
+No cloud synchronisation, account system, encrypted backup or protected audio download is added. SoundCloud speed is not adjustable by this embed. Physical-phone background playback, microphone behaviour and live third-party streaming still require device checks. See VERIFICATION.md for the test conditions.

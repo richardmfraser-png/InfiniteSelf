@@ -20,3 +20,7 @@ Elective setup; four foundational commitments with at least two mental and two p
 
 ## Platform limits are part of the brief
 Do not promise hidden YouTube playback, universal background sound, universal dictation or a cloud-synced gallery. State these clearly in Help and implementation notes. Existing uploaded photographs are sufficient to ship this release; additional photos are optional later additions.
+
+
+## v3.1 refinement addendum
+SoundCloud Daimoku in addition to YouTube; source-aware playback rates; editable Guiding Intention; central Settings backup/restore/export; adjustable page/card palettes and font size; text-input following across typing/dictation. Existing local records and media must be preserved. Do not imply unsupported SoundCloud rate or background-play guarantees.

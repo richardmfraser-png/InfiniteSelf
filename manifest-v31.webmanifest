@@ -1,0 +1,25 @@
+{
+  "id": "./index.html?v=21",
+  "name": "Infinite Self",
+  "short_name": "Infinite Self",
+  "description": "Infinite Self \u2014 personal journaling, goals, meditation, SoundCloud, themes and a private gallery.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5fafc",
+  "theme_color": "#0A3554",
+  "icons": [
+    {
+      "src": "infinite-self-icon-192-v3.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "infinite-self-icon-512-v3.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

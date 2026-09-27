@@ -1,33 +1,28 @@
-# Infinite Self v3 — implementation references and boundaries
+# Technical notes — Infinite Self v3.1
 
-## Official references consulted for this release
-- YouTube Developer Policies, section III.I.9: no background player hidden from the page/tab/screen the user is viewing. https://developers.google.com/youtube/terms/developer-policies
-- YouTube policy guide: no hidden/background play or downloading/separating video audio. https://developers.google.com/youtube/terms/developer-policies-guide
-- YouTube IFrame API: embedding, controls, callbacks and visibility-compatible playback. https://developers.google.com/youtube/iframe_api_reference
-- MDN Media Session API: lock-screen/device controls, browser support limits. https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API
-- MDN Audio Session API: optional/experimental playback-session declaration. https://developer.mozilla.org/en-US/docs/Web/API/Audio_Session_API
-- MDN SpeechRecognition: limited availability, possible server-based speech processing. https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition
-- MDN IndexedDB: local structured data and blobs. https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API
-- GitHub Pages deployment documentation. https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
+## Audio sources and implementation
+The added source is the user-selected **Nam Myoho Renge Kyo — 1 Hour Daimoku** by **A Nichiren Buddhist**. The production app retains its canonical URL and loads the official SoundCloud widget/API on a user Play action. No stream scraping, credentials or external recording files are included.
 
-## Session engine
-A single HTMLAudioElement persists outside tab panels. YouTube is instantiated only following user action and remains in a visible dock. Hiding the document or opening a modal pauses YouTube. No media is extracted from YouTube. The bundled Ocean Breath and Soft Bell are original algorithmic soundscapes exported as MP3 files for native media playback.
+Source: https://soundcloud.com/nichirenletters/nam-myoho-renge-kyo-1-hour-daimoku-namu-myoho-renge-kyo-chanting
+Widget API: https://developers.soundcloud.com/docs/api/html5-widget
 
-Elapsed time is accumulated from wall-clock timestamps between explicit start and pause, rather than assuming every interval callback ran on schedule. The UI reconciles after visibility changes. This avoids a slow timer when browser callbacks are throttled, but cannot ensure a stop callback runs while the browser is suspended. A session timer is not a measure of actual audio delivery. Interrupted reloads resume in a paused state only.
+The integration uses the documented play/pause, seek, readiness and playback events. That API lists no rate setter, so the SoundCloud controls are disabled at 1×. The iframe stays outside application tab rendering. A separate HTML audio element handles native recordings. YouTube rate options are obtained from its player rather than assumed. One wall-clock session timer continues to measure practice time, independently of source speed.
 
-## Local storage and privacy
-Records keep the historical `spectacularSpiritJournalV1` key. IndexedDB stores personal media blobs. No media is posted to GitHub by the app. Uploaded photos are decoded and re-encoded, reducing file size and dropping original file metadata. Backups are unencrypted and must remain private.
+Native rate control: https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/playbackRate
+YouTube API: https://developers.google.com/youtube/iframe_api_reference
+Media-session controls: https://developer.mozilla.org/en-US/docs/Web/API/Media_Session_API
+YouTube policies: https://developers.google.com/youtube/terms/developer-policies
 
-Embedded YouTube contacts Google/YouTube when the user starts the source. External links contact their providers. Browser speech recognition may process audio remotely. Permission messaging is shown before in-app dictation; no claim of entirely offline speech recognition is made.
+## Writing and preferences
+Preferences are validated on load/restore. Colour values must be six-digit hex; text scaling is bounded; invalid audio-rate values are ignored. Appearance uses semantic CSS colours and scales text without disabling browser zoom. A delegated input handler covers current and dynamically inserted fields. A hidden measurement element estimates textarea cursor position so middle edits do not jump to the end. Viewport and scroll adjustments are separate from text persistence.
 
-## Photo and audio limits
-JPEG, PNG and WebP images: maximum original 20 MB, output long edge 1600 px, 80 personal photos. Personal audio: up to 40 MB per file; MP3, M4A, WAV, OGG and WebM are accepted but actual codecs vary by browser. Full media backup is limited to 180 MB of source blobs to avoid an oversized browser JSON operation. Records-only export remains available.
+Textarea API: https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement
+Visual viewport: https://developer.mozilla.org/en-US/docs/Web/API/VisualViewport
+Speech recognition: https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition
 
-## Offline caching
-The service worker caches only this app's known same-origin files. Navigation is network-first with a cached application fallback for the application entry only. Static assets are versioned. Unknown/missing image requests are not replaced by HTML. Cached audio supports one byte-range response at a time. Third-party YouTube requests are not cached. User media remain in IndexedDB and are not controlled by the asset cache.
+## Privacy, persistence and deployments
+Records remain in the legacy localStorage key; binary media remain in the existing IndexedDB store. New settings are carried by JSON backup/restore. Full backups include uploaded media; remote links remain links. Journal text/PDF copies are not substitutes for restorable backups. Streaming and optional browser dictation contact their providers; local journal writing is not uploaded by this app.
 
-## Installation identity
-The manifest supplies the new name and photo-only icon. Its ID retains the prior v2.1 start URL identity (`./index.html?v=21`) while navigation uses `./index.html`. Operating systems may keep prior installed icon/name metadata. Back up before re-adding an installed shortcut, as browser/installed-app storage contexts can differ.
+Code/style filenames and the service-worker cache are versioned. Cache cleanup is scoped to this app's path prefix and does not erase localStorage or IndexedDB. The worker does not cache cross-origin streams. Offline range responses are retained for included audio.
 
-## Copyright / source status
-The seed photographs were supplied by Richard Fraser for this project. Short Wisdom prose is retained from the prior app as original reflection/summary text, not long copied readings. Existing direct-video and search links remain external and are labelled accordingly. Audio-generation frequencies are design choices, not claims of therapeutic benefit.
+GitHub publishing source: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site

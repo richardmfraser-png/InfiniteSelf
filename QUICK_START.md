@@ -1,37 +1,44 @@
-# Infinite Self — Quick Start
+# Infinite Self v3.1 — Quick Start
 
-## Set your direction
-Run the optional setup from Help, or skip it. Enter your name, journey, duration and guiding intention. Add optional goals. Keep two mental and two physical commitments; change their names and targets in Commitments.
+## First use
+Run the optional Q&A, or choose **Skip — set up later**. Your existing records are not replaced by this update. On a shared device, remember that this is local browser storage, not a password-protected user account.
 
-## Use Today
-Set My 3 priorities. In each commitment card, Mind/Body is the category, the larger title is the commitment, and each task/branch has its own target amount. Enter the amount performed and choose Log. The ring shows weekly target coverage; the bar shows today's amount coverage. Open Recent entries to remove a mistaken log.
+## Your intention and settings
+Open **Settings → Journey & guiding intention**. Edit your name, journey duration, start date and default meditation/Wisdom category; use **Save journey settings** for those fields. Guiding Intention saves as you type or dictate. The **Edit** button on Today takes you directly to this field.
 
-A target is met on a day when the amount reaches the configured threshold. Repeated logs on the same day add together, but do not create extra attendance days. Parent scores are the equal average of their branches. Current target definitions are used for the displayed history.
+## Appearance
+Open **Settings → Appearance & reading comfort**. Choose Ocean blue, Sea glass, Warm sand, Lavender or Midnight; use the page/card colour pickers for a custom combination. The text-size slider and A−/A+ controls cover **90%–150%**. Changes save immediately in this browser. Reset appearance changes only colours and text size—not your entries or photos. External streaming players keep their own styling.
 
-## Write in Journal
-Choose a date, then type in Morning, Freeform or Evening. Writing autosaves locally, and Save journal entry provides an explicit save. Search history, expand any entry to read it in full, or open that date to edit it.
+## Today, Commitments and Goals
+Use My 3 for today's priorities. Keep at least two mental and two physical commitments; name them, set targets, and add optional branches. The weekly ring measures target-day coverage, not the sum of incomparable units. Add optional Goals with dates, related commitments and milestones. Remove incorrect activity logs from Recent entries and log the corrected amount.
 
-Choose Dictate to use a supported browser's microphone transcription. Allow permission, speak, stop and review. The provider may process speech online. In unsupported browsers use your device keyboard microphone. Dictation pauses meditation audio to avoid recording the speaker; tap Play to resume. Typing does not pause playback.
+## Journal and dictation
+Choose a date, then use Morning, Freeform or Evening. Journal fields autosave locally. You can type, use the keyboard microphone or press Dictate where available. Review all dictated text. Dictation may use the browser/device provider's online service; the app does not retain microphone recordings.
 
-## Reflect from Wisdom
-Choose Carry to Journal beneath a reading. A composer opens on the same page. Pick Morning, Freeform or Evening and the entry date; type or dictate a response. Save to Journal appends the prompt and your response without overwriting prior writing. Closing retains the current composer draft on this device.
+Long text areas grow, then scroll internally. New words stay visible; deliberately editing earlier text preserves your cursor position. This applies to setup, goal/branch forms, resource notes and the Wisdom composer too. On smaller screens, a non-YouTube player moves into normal page flow while you write so it does not cover the text. It is not recreated. Typing does not pause a session; starting in-app dictation does.
 
-## Meditate
-Choose the YouTube reference chant, Ocean Breath or Soft Bell. Choose a duration or enter 1–180 minutes, then Play. The player is global: moving through app tabs does not restart it. End & save records elapsed session time; Reset discards the current session. Sessions under five seconds are not recorded.
+## Meditation and the new chant
+Select **Daimoku · SoundCloud** for the supplied one-hour recording by A Nichiren Buddhist. The original YouTube chant remains beside Ocean Breath and Soft Bell. Set session minutes, choose Loop sound, then Play. Tap inside an embedded player when prompted. Choose **End & save elapsed time** to finish early.
 
-Choose where session minutes should be credited, or use Session history only. Do not manually log the same minutes again. The clock measures session duration, not verified listening. Browser suspension can delay automatic stopping at the target.
+The same SoundCloud player is retained when changing app tabs. The app does not deliberately pause it on backgrounding, but uninterrupted screen-lock or other-app playback is **not guaranteed**. Streaming needs internet and the service/creator's availability. For offline playback use the included audio or a file you own or have permission to use.
 
-For your own clips, add a title and a YouTube video link, or import an audio file you own or have permission to use. A saved YouTube link is not an audio download. The visible YouTube player pauses when the app is hidden or a dialog covers it. Included/native audio supports background playback on compatible devices, with no universal lock-screen guarantee.
+**Playback speed:** SoundCloud is shown at 1× with unavailable controls. Included/local audio has a 0.5×–2× slider and preset buttons. YouTube offers the rates available from that video after it loads. The app remembers each recording's rate. The session timer still measures real elapsed time—not sped-up media time.
 
-## Build your gallery
-Gallery starts with 14 photographs already supplied by Richard. Filter, favourite or open a photo uncropped. Choose a page and Use on this page to replace its header photograph. No titles are painted over the photos.
+Add another SoundCloud track or YouTube video with **Add audio link**, using its full URL. For variable-speed chanting without an embedded-player limitation, import a permitted MP3/M4A or other supported audio file. No remote recording is extracted or downloaded by this update.
 
-Add JPEG/PNG/WebP photos (up to 20 MB each; 80 personal photos). They are resized to a maximum 1600-pixel long edge and stored on this device. Keep originals. A full backup includes your personal photos and audio; seed photos ship with the app and need not be duplicated in backups.
+## Wisdom and Gallery
+Carry to Journal opens a composer on the Wisdom page. Choose date and entry type, type or dictate, then Save to Journal. It appends to existing writing. Gallery retains the 14 supplied images and supports your own local uploads, favourites and page-photograph choices.
 
-## Review goals and progress
-Use Goals for dated outcomes and optional milestones. Recurring Commitments can be linked to Goals. Review weekly target coverage and each branch separately in Progress. A score partway through the week is not a failure or a prediction.
+## Backup, restore and export
+Everything is now together in **Settings → Backup, restore & export**. Help also links there.
 
-## Protect your information
-Help → Full backup includes private records plus personal media. Records-only backup excludes photo/audio files. Restore accepts older Spectacular Spirit Journal record backups or the new full backup. Restoring replaces current data after confirmation.
+| Control | What it contains |
+|---|---|
+| Full JSON backup | Records, intentions, preferences, saved links and personal photos/audio |
+| Records-only JSON | Records and preferences; no personal media files |
+| Restore backup | Restores a full or records-only compatible JSON backup after confirmation |
+| Activity CSV | Activity and journal metadata, not journal body text |
+| Journal text | A readable private .txt copy, not a restorable backup |
+| Print / save journal PDF | Opens a printable journal; use the browser Print dialog |
 
-Browser storage is not encrypted or guaranteed permanent. Keep backups privately; never upload them with the public app package. Ask browser to retain my data in Gallery is a best-effort persistence request, not a substitute for backups.
+**Keep backups private, outside your GitHub repository.** They are not encrypted. “Backup prepared” means the app created the download; confirm it was saved. Clearing site data or moving to another browser/device can remove or separate local records. There is no cloud sync or automatic backup service.

@@ -1,444 +1,288 @@
 {
-  "environment": "Chromium in-memory DOM/audio harness; mocked storage and external speech/YouTube APIs. Node service-worker unit harness. Not a physical-device or live-deployment test.",
-  "ui_and_logic": [
+  "appVersion": "3.1.0",
+  "environment": "Offline Chromium rendered app; storage APIs and SoundCloud/YouTube/speech callbacks simulated. Included MP3 playback exercised using native HTML audio with inlined data. No deployed HTTPS, live external streaming or physical phone test.",
+  "results": [
     {
-      "check": "Fresh launch and Infinite Self identity",
+      "test": "v3.1 loads without JavaScript errors",
       "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "Optional setup can be skipped",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "Four distinct foundations",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "No phantom journal entry on launch",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "Setup stores name, intention and goal",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "Logs are not shared between commitments",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "Multiple same-day logs count as one target day",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "Rerunning setup retains IDs and log records",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "Optional branches persist",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "Branch segmentation and parent score",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "Immediate navigation flushes journal draft",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "Search finds full dated writing",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "History expands untruncated entry",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "Wisdom draft retained",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "Wisdom composer remains on Wisdom and appends",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "YouTube URL forms recognised",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "Unsafe and nonvideo URLs rejected",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "Additional video link saved",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "14 existing photos seed Gallery",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "Gallery upload decoded and stored through adapter",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "Photo favourite and Journal header selection",
-      "passed": true,
-      "detail": ""
-    },
-    {
-      "check": "Native MP3 plays across tab navigation",
-      "passed": true,
-      "detail": ""
+      "detail": "[]"
     },
     {
-      "check": "Timer advances across tab navigation",
+      "test": "Existing records storage key retained",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "Dictation pauses audio",
+      "test": "Guiding Intention autosaves exact multiline text",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "Dictated text appends and saves",
+      "test": "Guiding Intention updates Today",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "Dictation requires deliberate playback resume",
+      "test": "Today Edit opens Settings at intention",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "Completed session is recorded once",
+      "test": "Journey and default SoundCloud preference saved",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "Credited session log is not duplicated",
+      "test": "Colour and font preferences persist",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "YouTube API callback starts session",
+      "test": "Text contrast adjusts on dark surfaces",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "Visible YouTube dock persists across in-app tabs",
+      "test": "Custom page and card colours are applied",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "YouTube pauses when app is hidden",
+      "test": "390px / 150% text no page overflow: ocean",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "Hidden YouTube does not automatically resume",
+      "test": "390px / 150% text no page overflow: sea",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "Full backup includes records and local media",
+      "test": "390px / 150% text no page overflow: sand",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "Full backup restores records and media through adapter",
+      "test": "390px / 150% text no page overflow: lavender",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "Legacy records-only format still accepted",
+      "test": "390px / 150% text no page overflow: night",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "CSV formula-like text escaped",
+      "test": "320px / 150% settings no page overflow",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: today at 320px",
+      "test": "Reset appearance leaves journal and intention intact",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: journal at 320px",
+      "test": "Native audio actually plays at 1.5x",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: commitments at 320px",
+      "test": "Native playback persists across tab change",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: goals at 320px",
+      "test": "Session timer uses real time, not 1.5x media time",
       "passed": true,
-      "detail": ""
+      "detail": "Elapsed delta 0.838s over ~0.8s"
     },
     {
-      "check": "No page overflow: meditation at 320px",
+      "test": "Long journal field follows the end internally",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: wisdom at 320px",
+      "test": "Long journal caret stays in visible viewport",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: gallery at 320px",
+      "test": "Editing earlier text does not jump to end",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: progress at 320px",
+      "test": "Small visual viewport keeps the final line visible",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: help at 320px",
+      "test": "Wisdom composer follows long text in a dialog",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: settings at 320px",
+      "test": "Composer caret fits dialog / resized viewport",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: today at 390px",
+      "test": "Wisdom response appends without replacing journal",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: journal at 390px",
+      "test": "Simulated dictated text follows the end",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: commitments at 390px",
+      "test": "Simulated intention dictation saves through normal input",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: goals at 390px",
+      "test": "SoundCloud iframe uses exact supplied canonical URL",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: meditation at 390px",
+      "test": "Simulated SoundCloud PLAY starts session timer",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: wisdom at 390px",
+      "test": "SoundCloud speed controls disabled honestly at 1x",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: gallery at 390px",
+      "test": "SoundCloud iframe is unchanged across app tabs",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: progress at 390px",
+      "test": "SoundCloud finish loops through widget API",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: help at 390px",
+      "test": "Pause stops SoundCloud and timer",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: settings at 390px",
+      "test": "Switching recordings does not discard saved speed",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: today at 768px",
+      "test": "YouTube speed calls actual documented API shape",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: journal at 768px",
+      "test": "Full backup includes preferences and encoded media",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: commitments at 768px",
+      "test": "Restore restores writing, intention and preferences",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: goals at 768px",
+      "test": "Restore restores personal media bytes in simulated store",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: meditation at 768px",
+      "test": "Records export includes new preferences",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: wisdom at 768px",
+      "test": "CSV excludes private journal body",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: gallery at 768px",
+      "test": "Readable journal export includes writing and intention",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: progress at 768px",
+      "test": "Unsafe / non-track links rejected",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: help at 768px",
+      "test": "Legacy v3 record identifiers and references survive normalisation",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: settings at 768px",
+      "test": "All features retained / mobile layout: today",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: today at 1280px",
+      "test": "All features retained / mobile layout: journal",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: journal at 1280px",
+      "test": "All features retained / mobile layout: commitments",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: commitments at 1280px",
+      "test": "All features retained / mobile layout: goals",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: goals at 1280px",
+      "test": "All features retained / mobile layout: meditation",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: meditation at 1280px",
+      "test": "All features retained / mobile layout: wisdom",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: wisdom at 1280px",
+      "test": "All features retained / mobile layout: progress",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: gallery at 1280px",
+      "test": "All features retained / mobile layout: gallery",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: progress at 1280px",
+      "test": "All features retained / mobile layout: settings",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: help at 1280px",
+      "test": "All features retained / mobile layout: help",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No page overflow: settings at 1280px",
+      "test": "Desktop layout no horizontal overflow",
       "passed": true,
       "detail": ""
     },
     {
-      "check": "No uncaught JavaScript errors in tested flows",
+      "test": "No uncaught app JavaScript exceptions throughout tests",
       "passed": true,
       "detail": "[]"
     }
   ],
-  "service_worker": [
-    {
-      "check": "All declared app assets precache",
-      "passed": true
-    },
-    {
-      "check": "Worker claims clients and preserves unrelated caches",
-      "passed": true
-    },
-    {
-      "check": "Worker does not activate over drafts without request",
-      "passed": true
-    },
-    {
-      "check": "Explicit update request can activate worker",
-      "passed": true
-    },
-    {
-      "check": "Cached audio handles byte range",
-      "passed": true
-    },
-    {
-      "check": "Invalid cached audio range returns 416",
-      "passed": true
-    },
-    {
-      "check": "Suffix audio range works",
-      "passed": true
-    },
-    {
-      "check": "Missing image is not replaced by app HTML",
-      "passed": true
-    },
-    {
-      "check": "YouTube traffic is not intercepted",
-      "passed": true
-    },
-    {
-      "check": "Application entry falls back offline",
-      "passed": true
-    },
-    {
-      "check": "Help guide is available offline",
-      "passed": true
-    },
-    {
-      "check": "Unknown offline page returns an error, not app HTML",
-      "passed": true
-    },
-    {
-      "check": "Photo served offline with correct content type",
-      "passed": true
-    }
-  ]
+  "passed": 56,
+  "failed": 0
 }
