@@ -1,9 +1,25 @@
-# Infinite Self v3.1 — Start here
+## Welcome to Infinite Self v3.4
 
-**Updating an existing app?** Follow [the GitHub update guide](GITHUB_UPDATE_GUIDE.html). Make a private backup first, then upload every extracted file into the same publishing folder as the current `index.html`.
+This is an upgrade to your existing app, not a replacement for your personal records.
 
-**Using the new features?** Open [the Quick Start](QUICK_START.html). Guiding Intention, appearance and all backup/export controls are now in Settings. Both chant sources are in Meditation. The SoundCloud embed remains at normal speed; local audio supports 0.5×–2×.
+**Updating an existing GitHub Pages app:** begin with the [GitHub update guide](GITHUB_UPDATE_GUIDE.html). Extract the ZIP and replace the corresponding files in the same publishing folder. Upload all the extracted files together—not the ZIP itself or an extra enclosing folder.
 
-**Checking deployment?** Use [the asset checker](ASSET_CHECK.html) at your hosted site and confirm the app header shows **v3.1**.
+**Already updated:** open the [app](index.html). Check for **v3.4** in the header. Explore **Routines**, **Gallery**, and **Progress → Weekly review**. The [new-feature guide](V3_4_FEATURE_GUIDE.html) walks through each addition.
 
-[Open Infinite Self](index.html) · [Read the test record](VERIFICATION.md)
+**Checking the deployment:** open [ASSET_CHECK.html](ASSET_CHECK.html) at your hosted site. It verifies the packaged files and displays the photographs and icon. It does not inspect private records.
+
+> Before changing anything, use your current app’s **Settings → Backup & export → Full backup** and save the resulting JSON file somewhere private. Never upload that personal backup to GitHub.
+
+## What this version adds
+
+Gallery swiping and editable photo names/captions, photo-linked journaling, a dated weekly review, an editable routine builder, and backup status with recoverable photo/activity removal. Basic photo tags and search are included.
+
+## Local preview
+
+The app uses separate HTML, JavaScript, CSS, images and audio files. A single `index.html` attachment is not a standalone app. For a desktop check, serve the extracted folder using a local web server, for example:
+
+```sh
+python3 -m http.server 8080
+```
+
+Then open `http://localhost:8080/` in your browser. Phone installation uses the hosted HTTPS site. Public guides and code can be shared; your saved journal and uploaded media are not part of this ZIP.

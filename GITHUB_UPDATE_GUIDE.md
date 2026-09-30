@@ -1,44 +1,44 @@
-# Update your GitHub Pages app to Infinite Self v3.1
+## Before you update
 
-## 1. Make a private backup first
-In the app you currently use, make a **full JSON backup** from Help or Settings and confirm that the file saved. Keep it on your device—not in GitHub. Pause an active meditation before updating.
+1. In your current Infinite Self app, go to **Settings → Backup & export** and create a **Full backup**. Save the JSON privately. This includes local photos and audio; the records-only option does not.
+2. Save any open Journal, photo-details or routine edits. End or pause an active meditation.
+3. Keep using the **same site address and browser/installed app**. Do not clear website data, remove the installed app, rename the repository, or create a new Pages site just to install this release.
 
-This update retains the existing records key (`spectacularSpiritJournalV1`), media database (`infinite-self-media-v3`) and install identity. It is not a migration to a new website or account. Continue using the same site and browser/installed-app context.
+## Upload the release to GitHub
 
-## 2. Extract the update ZIP
-Extract **Infinite_Self_GitHub_Update_v3_1.zip**. The package contains flat files, with no nested assets directory. Upload the extracted files, not the ZIP itself.
+1. Extract `Infinite_Self_GitHub_Update_v3_4.zip` on your computer. Its contents are flat—there is no `assets` folder to reconstruct.
+2. Open the repository you already use. Go to the **publishing folder that currently contains your live `index.html`**. It may be the repository root or `/docs`; keep your existing choice.
+3. Choose **Add file → Upload files**, select **all extracted files**, and replace matching filenames. Do not upload the ZIP itself, your private backup, or an extra enclosing folder.
+4. Commit the change with a message such as `Update Infinite Self to v3.4`.
+5. Wait for your repository’s Pages deployment to finish successfully. A commit alone does not prove deployment completed; check its Pages/Actions status.
 
-## 3. Replace files in the SAME publishing folder
-Open the existing repository folder that contains the live `index.html`—the root or `docs` folder, depending on your Pages configuration. Choose **Add file → Upload files**, upload **all files in this package**, replace matching files, and commit.
+All release files are comfortably below GitHub’s web-upload file-size limit, and the package fits within a single batch. Older versioned script/style files can remain in the repository; the new entry page no longer references them. Keep `CNAME`, existing workflows and unrelated repository files intact.
 
-The app now loads `app-v31.js`, `style-v31.css` and `manifest-v31.webmanifest`. Uploading only `index.html` is not enough. The package also includes all existing photographs, audio, icons and updated documentation.
+## Activate and verify
 
-Keep repository configuration such as `CNAME`, custom workflows and unrelated files. There is no need to rename the repository or remove old app-v3/style-v3 files. They are no longer referenced by this release. Preserve `.nojekyll` when working with Git locally.
+1. Open your usual app address online. Refresh. If an update notice appears, choose **Save and refresh** after saving unfinished work.
+2. Confirm the header shows **Infinite Self · v3.4**.
+3. Open `ASSET_CHECK.html` at the same hosted directory. The headline should identify **v3.4**, the icon and fourteen photographs should appear, and each required file should pass its check.
+4. Open **Routines**: the Morning practice and Evening reset templates should be present for an upgraded account that had no routines.
+5. Open a Gallery photograph and test Next/Previous, rename, and Reflect on this image.
+6. Confirm an earlier Journal entry and My 3 date are still available.
 
-## 4. Let Pages deploy, then refresh
-Check the repository's deployment status. After it succeeds, visit your usual app address with `?release=3.1` added to the end (use `&release=3.1` if a query is already present). Refresh and accept **Save and refresh** if the update notice appears. The header must show **v3.1**.
+### Still seeing the previous version?
 
-The new offline worker waits for a safe refresh rather than forcibly replacing a page while you write. New code/style filenames avoid confusing the old cache with new assets. **Do not clear website data or uninstall the app merely to refresh it.**
+First check the deployment, not your private browser data. Confirm that the live publishing folder contains `app-v34.js`, `features-v34.js`, `style-v34.css`, `manifest-v34.webmanifest`, the new `service-worker.js`, and `release-v34.json`. Use the asset checker to spot missing or stale files. Close other tabs of the app and reopen the same site online; the updated worker may need the old page to close or the update prompt to be accepted.
 
-## 5. Verify the update
-Open **ASSET_CHECK.html** in the same hosted folder. It should report no missing or mismatched required files and show the 14 photographs and photographic icon. This checker verifies deployment assets—not SoundCloud availability or private data.
+**Do not use Clear site data as a refresh method.** Do not unregister the installed app merely to obtain new features. This release keeps the existing photo icon and app identity.
 
-Then verify these controls:
+## Records and upgrades
 
-1. Today → Guiding Intention → Edit leads to Settings and keeps your existing text.
-2. Settings → Appearance changes page/cards and text size; your choice survives a refresh.
-3. Settings → Backup, restore & export offers all backup/export tools.
-4. Meditation includes both SoundCloud and YouTube chants. Play SoundCloud online, type in Journal, then return and check continuity. Its speed control should be unavailable at 1×.
-5. Play Ocean Breath at 1.5× or 2× to check the speed feature; compare with a permitted local audio file.
-6. Enter several paragraphs in Journal or Carry to Journal and confirm the insertion point stays visible, including with your phone keyboard open.
+The records key is still `spectacularSpiritJournalV1`, and personal media still use the existing `infinite-self-media-v3` IndexedDB database. This release adds fields; it does not intentionally reset legacy records. A different browser, private session, site origin or installed context can have different storage, so retain your full backup.
 
-## Playback limits to expect
-Embedded SoundCloud is an online stream; a login/consent requirement, ad, regional restriction, network or service change may affect it. The app cannot guarantee screen-lock or background playback. SoundCloud's normal-speed embed remains normal-speed; native/local audio and supported YouTube rates supply the rate-control feature. No playback-rate workaround or remote audio extraction is included.
-
-## If something still looks old
-Confirm the deployment completed and that the files are in the publishing folder, not a new wrapper directory. Open ASSET_CHECK directly, then use Save and refresh. Your icon has not been redesigned in this update, so there is normally no reason to remove and reinstall it. Keep your backup ready before changing browser/device/install context.
+Full backups contain private, unencrypted material. Restore only a backup you trust. Restoring replaces records; save the current state first. A records-only file cannot recreate a missing uploaded photograph or audio file.
 
 ## Rollback
-Retain your previous v3 package and private backup. Re-deploy its files at the same URL if needed; do not erase local storage. v3 will not expose the new SoundCloud preferences, theme controls or new exports.
 
-GitHub's publishing-source instructions: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+Prefer fixing an incomplete deployment rather than downgrading code. Rolling back to v3.3 would remove the v3.4 controls and is not a tested round-trip migration. Keep a v3.4 full backup before any rollback so routine/review/photo metadata can be recovered when returning to v3.4.
+
+## Official deployment references
+
+[GitHub: adding files](https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository) and [GitHub: configuring a Pages publishing source](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). The guide above does not require changing your existing publishing source.

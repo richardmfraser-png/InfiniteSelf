@@ -1,45 +1,39 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Update Infinite Self to v3.1</title><style>body{max-width:920px;margin:0 auto;padding:36px 24px 70px;background:#f3f8fb;color:#19384c;font:16px/1.65 system-ui,sans-serif}h1,h2{font-family:Georgia,serif;font-weight:500;line-height:1.25}h1{font-size:36px}h2{font-size:25px;margin-top:35px}h3{font-size:18px}a{color:#155982}nav{display:flex;gap:18px;flex-wrap:wrap;border-bottom:1px solid #c8d8e1;padding-bottom:18px;font-size:14px}article{padding:26px;background:#fff;border:1px solid #d6e2e8;border-radius:20px;margin-top:24px}p,li{overflow-wrap:anywhere}code{background:#eaf2f6;border-radius:5px;padding:2px 5px}table{border-collapse:collapse;width:100%;font-size:14px}td,th{padding:12px;text-align:left;border-bottom:1px solid #c8d8e1}blockquote{border-left:4px solid #266884;padding-left:16px;color:#355767}@media(max-width:600px){body{padding:20px 14px}article{padding:20px}h1{font-size:30px}}@media print{body{background:white;padding:0}nav{display:none}article{border:0;margin:0;padding:0}a{color:#19384c}}</style></head><body><nav><strong>∞ Infinite Self · v3.1</strong><a href="index.html">Open app</a><a href="QUICK_START.html">Quick Start</a><a href="GITHUB_UPDATE_GUIDE.html">Update guide</a><a href="ASSET_CHECK.html">Asset check</a></nav><article><pre style="white-space:pre-wrap;font-family:inherit"># Update your GitHub Pages app to Infinite Self v3.1
-
-## 1. Make a private backup first
-In the app you currently use, make a **full JSON backup** from Help or Settings and confirm that the file saved. Keep it on your device—not in GitHub. Pause an active meditation before updating.
-
-This update retains the existing records key (`spectacularSpiritJournalV1`), media database (`infinite-self-media-v3`) and install identity. It is not a migration to a new website or account. Continue using the same site and browser/installed-app context.
-
-## 2. Extract the update ZIP
-Extract **Infinite_Self_GitHub_Update_v3_1.zip**. The package contains flat files, with no nested assets directory. Upload the extracted files, not the ZIP itself.
-
-## 3. Replace files in the SAME publishing folder
-Open the existing repository folder that contains the live `index.html`—the root or `docs` folder, depending on your Pages configuration. Choose **Add file → Upload files**, upload **all files in this package**, replace matching files, and commit.
-
-The app now loads `app-v31.js`, `style-v31.css` and `manifest-v31.webmanifest`. Uploading only `index.html` is not enough. The package also includes all existing photographs, audio, icons and updated documentation.
-
-Keep repository configuration such as `CNAME`, custom workflows and unrelated files. There is no need to rename the repository or remove old app-v3/style-v3 files. They are no longer referenced by this release. Preserve `.nojekyll` when working with Git locally.
-
-## 4. Let Pages deploy, then refresh
-Check the repository&#x27;s deployment status. After it succeeds, visit your usual app address with `?release=3.1` added to the end (use `&amp;release=3.1` if a query is already present). Refresh and accept **Save and refresh** if the update notice appears. The header must show **v3.1**.
-
-The new offline worker waits for a safe refresh rather than forcibly replacing a page while you write. New code/style filenames avoid confusing the old cache with new assets. **Do not clear website data or uninstall the app merely to refresh it.**
-
-## 5. Verify the update
-Open **ASSET_CHECK.html** in the same hosted folder. It should report no missing or mismatched required files and show the 14 photographs and photographic icon. This checker verifies deployment assets—not SoundCloud availability or private data.
-
-Then verify these controls:
-
-1. Today → Guiding Intention → Edit leads to Settings and keeps your existing text.
-2. Settings → Appearance changes page/cards and text size; your choice survives a refresh.
-3. Settings → Backup, restore &amp; export offers all backup/export tools.
-4. Meditation includes both SoundCloud and YouTube chants. Play SoundCloud online, type in Journal, then return and check continuity. Its speed control should be unavailable at 1×.
-5. Play Ocean Breath at 1.5× or 2× to check the speed feature; compare with a permitted local audio file.
-6. Enter several paragraphs in Journal or Carry to Journal and confirm the insertion point stays visible, including with your phone keyboard open.
-
-## Playback limits to expect
-Embedded SoundCloud is an online stream; a login/consent requirement, ad, regional restriction, network or service change may affect it. The app cannot guarantee screen-lock or background playback. SoundCloud&#x27;s normal-speed embed remains normal-speed; native/local audio and supported YouTube rates supply the rate-control feature. No playback-rate workaround or remote audio extraction is included.
-
-## If something still looks old
-Confirm the deployment completed and that the files are in the publishing folder, not a new wrapper directory. Open ASSET_CHECK directly, then use Save and refresh. Your icon has not been redesigned in this update, so there is normally no reason to remove and reinstall it. Keep your backup ready before changing browser/device/install context.
-
-## Rollback
-Retain your previous v3 package and private backup. Re-deploy its files at the same URL if needed; do not erase local storage. v3 will not expose the new SoundCloud preferences, theme controls or new exports.
-
-GitHub&#x27;s publishing-source instructions: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
-</pre></article></body></html>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Update your existing app — Infinite Self v3.4</title><style>
+:root{color-scheme:light;--ink:#153b52;--muted:#526f80;--line:#cbdee9;--blue:#155982}
+*{box-sizing:border-box}body{margin:0;background:#f1f7fa;color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}header,main,footer{max-width:940px;margin:auto;padding:24px}header{padding-top:42px}header .brand{font-size:12px;letter-spacing:.16em;font-weight:700;text-transform:uppercase}h1{font:42px/1.15 Georgia,serif;margin:15px 0}h2{font:28px/1.25 Georgia,serif;margin:38px 0 14px}h3{font-size:19px;margin:25px 0 8px}p,li{max-width:78ch}main{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 10px 30px #17374708}main>h1:first-child{font-size:30px}nav{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}nav a,.button{border:1px solid var(--line);border-radius:22px;padding:7px 12px;text-decoration:none;font-size:13px;background:#fff;color:var(--ink)}a{color:var(--blue);text-underline-offset:3px}a:focus-visible,button:focus-visible{outline:3px solid #b88b27;outline-offset:3px}blockquote{margin:20px 0;padding:14px 18px;border-left:4px solid #b89b53;background:#f7f4e9;border-radius:0 12px 12px 0}blockquote p{margin:0}table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}td,th{padding:12px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#edf5f9}code{font-family:ui-monospace,Consolas,monospace;font-size:.91em;background:#edf4f7;border-radius:4px;padding:2px 5px;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf4f7;padding:16px;border-radius:12px}pre code{padding:0}footer{font-size:13px;color:var(--muted)}.lede{font-size:18px;color:var(--muted)}hr{border:0;border-top:1px solid var(--line);margin:28px 0}img{max-width:100%}@media(max-width:640px){header,main,footer{padding:20px}main{margin:0 10px}h1{font-size:34px}table{display:block;overflow-x:auto}}@media print{body{background:#fff;font-size:11pt}header{padding:0 0 16px}main{border:0;box-shadow:none;padding:0}nav{display:none}h2{break-after:avoid}p,li{orphans:3;widows:3}footer{padding:16px 0}}
+</style></head><body><header><div class="brand">∞ Infinite Self · v3.4</div><h1>Update your existing app</h1><p class="lede">Keep the same site. Keep your records. Replace the application files.</p><nav aria-label="Guide navigation"><a href="index.html">Open app</a><a href="START_HERE.html">Start here</a><a href="GITHUB_UPDATE_GUIDE.html">Update GitHub</a><a href="QUICK_START.html">Quick Start</a><a href="V3_4_FEATURE_GUIDE.html">New features</a><a href="ASSET_CHECK.html">Check deployment</a></nav></header><main><h2>Before you update</h2>
+<ol>
+<li>In your current Infinite Self app, go to <strong>Settings → Backup &amp; export</strong> and create a <strong>Full backup</strong>. Save the JSON privately. This includes local photos and audio; the records-only option does not.</li>
+<li>Save any open Journal, photo-details or routine edits. End or pause an active meditation.</li>
+<li>Keep using the <strong>same site address and browser/installed app</strong>. Do not clear website data, remove the installed app, rename the repository, or create a new Pages site just to install this release.</li>
+</ol>
+<h2>Upload the release to GitHub</h2>
+<ol>
+<li>Extract <code>Infinite_Self_GitHub_Update_v3_4.zip</code> on your computer. Its contents are flat—there is no <code>assets</code> folder to reconstruct.</li>
+<li>Open the repository you already use. Go to the <strong>publishing folder that currently contains your live <code>index.html</code></strong>. It may be the repository root or <code>/docs</code>; keep your existing choice.</li>
+<li>Choose <strong>Add file → Upload files</strong>, select <strong>all extracted files</strong>, and replace matching filenames. Do not upload the ZIP itself, your private backup, or an extra enclosing folder.</li>
+<li>Commit the change with a message such as <code>Update Infinite Self to v3.4</code>.</li>
+<li>Wait for your repository’s Pages deployment to finish successfully. A commit alone does not prove deployment completed; check its Pages/Actions status.</li>
+</ol>
+<p>All release files are comfortably below GitHub’s web-upload file-size limit, and the package fits within a single batch. Older versioned script/style files can remain in the repository; the new entry page no longer references them. Keep <code>CNAME</code>, existing workflows and unrelated repository files intact.</p>
+<h2>Activate and verify</h2>
+<ol>
+<li>Open your usual app address online. Refresh. If an update notice appears, choose <strong>Save and refresh</strong> after saving unfinished work.</li>
+<li>Confirm the header shows <strong>Infinite Self · v3.4</strong>.</li>
+<li>Open <code>ASSET_CHECK.html</code> at the same hosted directory. The headline should identify <strong>v3.4</strong>, the icon and fourteen photographs should appear, and each required file should pass its check.</li>
+<li>Open <strong>Routines</strong>: the Morning practice and Evening reset templates should be present for an upgraded account that had no routines.</li>
+<li>Open a Gallery photograph and test Next/Previous, rename, and Reflect on this image.</li>
+<li>Confirm an earlier Journal entry and My 3 date are still available.</li>
+</ol>
+<h3>Still seeing the previous version?</h3>
+<p>First check the deployment, not your private browser data. Confirm that the live publishing folder contains <code>app-v34.js</code>, <code>features-v34.js</code>, <code>style-v34.css</code>, <code>manifest-v34.webmanifest</code>, the new <code>service-worker.js</code>, and <code>release-v34.json</code>. Use the asset checker to spot missing or stale files. Close other tabs of the app and reopen the same site online; the updated worker may need the old page to close or the update prompt to be accepted.</p>
+<p><strong>Do not use Clear site data as a refresh method.</strong> Do not unregister the installed app merely to obtain new features. This release keeps the existing photo icon and app identity.</p>
+<h2>Records and upgrades</h2>
+<p>The records key is still <code>spectacularSpiritJournalV1</code>, and personal media still use the existing <code>infinite-self-media-v3</code> IndexedDB database. This release adds fields; it does not intentionally reset legacy records. A different browser, private session, site origin or installed context can have different storage, so retain your full backup.</p>
+<p>Full backups contain private, unencrypted material. Restore only a backup you trust. Restoring replaces records; save the current state first. A records-only file cannot recreate a missing uploaded photograph or audio file.</p>
+<h2>Rollback</h2>
+<p>Prefer fixing an incomplete deployment rather than downgrading code. Rolling back to v3.3 would remove the v3.4 controls and is not a tested round-trip migration. Keep a v3.4 full backup before any rollback so routine/review/photo metadata can be recovered when returning to v3.4.</p>
+<h2>Official deployment references</h2>
+<p><a href="https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository">GitHub: adding files</a> and <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">GitHub: configuring a Pages publishing source</a>. The guide above does not require changing your existing publishing source.</p>
+</main><footer>Local-first. Your writing is yours. Keep a private full backup before updating, clearing browser data or moving devices.</footer></body></html>

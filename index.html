@@ -10,10 +10,10 @@
 <meta content="Infinite Self" name="apple-mobile-web-app-title"/>
 <title>Infinite Self</title>
 <meta content="Infinite Self — intention, practice and reflection. A personal journal, goals, meditation and inspiration gallery." name="description"/>
-<link href="manifest-v31.webmanifest" rel="manifest"/>
+<link href="manifest-v34.webmanifest" rel="manifest"/>
 <link href="infinite-self-apple-v3.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="infinite-self-icon-192-v3.png" rel="icon" sizes="192x192" type="image/png"/>
-<link href="style-v31.css" rel="stylesheet"/>
+<link href="style-v34.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="setup" id="setup">
@@ -50,7 +50,7 @@
 </div>
 </div>
 <div class="shell">
-<header class="apphead"><div class="brandrow"><div class="wordmark"><span aria-hidden="true" class="infinity">∞</span><div><strong>Infinite Self</strong><small>INTENTION · PRACTICE · REFLECTION</small></div></div><span class="version">v3.1</span></div>
+<header class="apphead"><div class="brandrow"><div class="wordmark"><span aria-hidden="true" class="infinity">∞</span><div><strong>Infinite Self</strong><small>INTENTION · PRACTICE · REFLECTION</small></div></div><span class="version">v3.4</span></div>
 <div class="welcome"><div><h1 id="welcomeTitle">Make space for your next chapter.</h1><p id="welcomeNote">A little more presence. A little more purpose.</p></div><div class="daymeta"><span id="dayBadge"></span><span id="dateBadge"></span></div></div>
 <div class="photo-window" id="hero"><img alt="Sunlight above a calm horizon and a breaking wave in the foreground" fetchpriority="high" id="heroPhoto" src="feature-v3.jpg"/></div></header>
 <div class="notice error hidden" id="storageAlert" role="alert"></div>
@@ -60,27 +60,41 @@
 <button class="tabbtn" data-tab="journal" onclick="showTab('journal',this)">✎ Journal</button>
 <button class="tabbtn" data-tab="commitments" onclick="showTab('commitments',this)">◇ Commitments</button>
 <button class="tabbtn" data-tab="goals" onclick="showTab('goals',this)">◎ Goals</button>
-<button class="tabbtn" data-tab="meditation" onclick="showTab('meditation',this)">◌ Meditation</button>
+<button class="tabbtn" data-tab="routines" onclick="showTab('routines',this)">☀ Routines</button><button class="tabbtn" data-tab="meditation" onclick="showTab('meditation',this)">◌ Meditation</button>
 <button class="tabbtn" data-tab="wisdom" onclick="showTab('wisdom',this)">≡ Wisdom</button>
 <button class="tabbtn" data-tab="progress" onclick="showTab('progress',this)">▥ Progress</button>
 <button class="tabbtn" data-tab="gallery" onclick="showTab('gallery',this)">▧ Gallery</button><button class="tabbtn" data-tab="help" onclick="showTab('help',this)">? Help</button><button class="tabbtn" data-tab="settings" onclick="showTab('settings',this)">⚙ Settings</button>
 </div>
-<main>
+<div class="notice hidden" id="undoNotice" role="status"></div><div aria-label="Current routine" class="routine-guide hidden" id="routineGuide"></div><main>
 <section class="tab active" id="tab-today">
-<div class="section-title"><h2>Today</h2><small id="dayCount"></small></div>
-<div class="grid2" id="todayStats"></div>
+<div class="daily-nav card">
+<div class="daily-nav-main">
+<button aria-label="Previous day" class="btn ghost small" onclick="stepDailyDate(-1)">←</button>
+<div class="daily-date-copy"><span class="source">DAILY VIEW</span><strong id="dailyDateLabel">Today</strong><small id="dailyModeLabel"></small></div>
+<button aria-label="Next day" class="btn ghost small" onclick="stepDailyDate(1)">→</button>
+</div>
+<div class="daily-nav-actions">
+<input aria-label="Choose daily view date" id="dailyDate" onchange="setDailyDate(this.value)" type="date"/>
+<button class="btn secondary small" onclick="simulateDate()">Simulate date</button>
+<button class="btn ghost small hidden" id="returnToday" onclick="returnToToday()">Return to Today</button>
+</div>
+</div>
+<div class="section-title"><h2 id="todayHeading">Today</h2><small id="dayCount"></small></div>
+<div class="grid2" id="todayStats"></div><div id="weeklyFocusCard"></div><div id="routineToday"></div><div class="notice hidden" id="backupReminder"></div>
+<div class="card quote-card" id="dailyQuoteCard"></div>
 <div id="intentionCard"></div>
 <div class="card">
-<h3>My 3</h3><div class="muted">Three things that would make today feel intentional.</div>
+<h3>My 3</h3><div class="muted" id="priorityHelp">Three things that would make this day feel intentional.</div>
 <div id="priorities"></div>
+<details class="priority-history"><summary>Review My 3 history</summary><div id="priorityHistory"></div></details>
 </div>
 <div class="card">
-<div class="section-title" style="margin-top:0"><h3>Core commitments</h3><small>log what you do</small></div>
+<div class="section-title" style="margin-top:0"><h3>Core commitments</h3><small id="dailyLogLabel">log what you do</small></div>
 <div id="todayCommitments"></div>
 </div>
 </section>
 <section class="tab" id="tab-journal">
-<div class="section-title"><h2>Journal</h2><small>intention, reflection, and notes</small></div><div class="journal-tools"><label for="journalDate">Entry date</label><input id="journalDate" onchange="changeJournalDate(this.value)" type="date"/><span id="journalSaveStatus" role="status">Ready to write</span></div>
+<div class="section-title"><h2>Journal</h2><small>intention, reflection, and notes</small></div><div class="card journal-photo-card" id="journalPhotoCard"></div><div class="journal-tools"><label for="journalDate">Entry date</label><input id="journalDate" onchange="changeJournalDate(this.value)" type="date"/><span id="journalSaveStatus" role="status">Ready to write</span></div>
 <p class="muted">Type, use your keyboard microphone, or choose Dictate. Your writing is saved locally as you go. Always review dictated text.</p>
 <div class="card">
 <div class="field"><label for="journalMorning">Morning intention</label><textarea id="journalMorning" oninput="queueJournalSave()" placeholder="How do I want to meet today?" spellcheck="true"></textarea><div class="dictation-row"><button class="btn ghost small dictate-btn" data-target="journalMorning" onclick="startDictation('journalMorning',this)">◉ Dictate</button><span class="dictate-hint" id="journalMorningHint"></span></div></div>
@@ -92,6 +106,7 @@
 </div>
 <button class="btn primary" onclick="saveJournal()">Save journal entry</button>
 </div>
+<div class="card hidden" id="journalSourcesCard"><h3>Inspirational sources in this entry</h3><div id="journalSources"></div></div>
 <div class="card">
 <div class="section-title" style="margin-top:0"><h3>Journal history</h3><small id="journalCount"></small></div>
 <div class="field"><input aria-label="Search journal history" id="journalSearch" oninput="renderJournalHistory()" placeholder="Search your journal..."/></div>
@@ -111,7 +126,7 @@
 <div class="section-title"><h2>Meditation</h2><small>Two chants. Two soundscapes. Your library.</small></div>
 <div class="timerWrap"><div class="brand">YOUR SESSION</div><div class="timer" id="timerRing"><div><span><b id="timerText">10:00</b><small id="timerState">ready</small></span></div></div><div class="timer-options" id="timerOptions"></div>
 <div class="session-settings"><label for="sessionMinutes">Minutes</label><input id="sessionMinutes" max="180" min="1" onchange="setTimer(this.value)" type="number" value="10"/><label class="checklabel"><input checked="" id="loopMedia" onchange="setLoopMedia(this.checked)" type="checkbox"/> Loop sound</label></div>
-<div class="row" style="margin-top:14px"><button class="btn primary" id="playBtn" onclick="toggleMeditation()">Play session</button><button class="btn secondary" onclick="endMeditation()">End &amp; save elapsed time</button><button class="btn ghost" onclick="resetMeditation()">Reset</button></div>
+<div class="row" style="margin-top:14px"><button class="btn primary" id="playBtn" onclick="toggleMeditation()">Play session</button><button class="btn secondary" onclick="playGong()">◉ Gong</button><button class="btn secondary" onclick="endMeditation()">End &amp; save elapsed time</button><button class="btn ghost" onclick="resetMeditation()">Reset</button></div><p class="muted gong-note">Gong is independent of the meditation track. Press it any time during a session.</p>
 <div class="speed-panel" id="speedPanel"><div class="speed-heading"><label for="playbackSpeed">Playback speed</label><output for="playbackSpeed" id="speedValue">1×</output></div><input aria-describedby="speedHelp" id="playbackSpeed" max="2" min="0.5" oninput="setPlaybackSpeed(this.value)" step="0.05" type="range" value="1"/><div class="rate-presets" id="ratePresets"></div><p class="muted" id="speedHelp" role="status"></p><p class="timer-note">The timer measures your session, not verified listening time. Device suspension can delay stopping at the target. Internet audio may pause independently.</p></div><p class="timer-note">The timer measures your session, not verified listening time. If the device suspends the app, stopping at the target may be delayed until it wakes.</p></div>
 <div class="module-grid" id="moduleList"></div>
 <div class="card"><div class="section-title"><h3>Your audio library</h3><button class="btn secondary small" onclick="openClipForm()">＋ Add audio link</button></div>
@@ -122,17 +137,20 @@
 <div class="card"><h3>Session history</h3><div class="muted" id="medHistory"></div></div>
 </section>
 <section class="tab" id="tab-wisdom">
-<div class="section-title"><h2>Readings &amp; wisdom</h2><small>selected materials by category</small></div>
+<div class="section-title"><h2>Readings &amp; wisdom</h2><small>one unread lesson at a time</small></div>
 <div class="filter-row" id="wisdomFilters"></div>
 <div class="card">
 <div class="row"><button class="btn secondary" onclick="openResource()">＋ Add my own resource</button><button class="btn ghost" onclick="openSearchForCurrent()">Search web</button><button class="btn ghost" onclick="openVideoSearchForCurrent()">Search YouTube</button></div>
 </div>
 <div id="wisdomList"></div>
 <div class="card">
-<h3>My saved resources</h3><div class="muted" id="resourceList">No custom resources yet.</div>
+<div class="section-title" style="margin-top:0"><h3>Reading history &amp; favourites</h3><small id="wisdomHistoryCount"></small></div>
+<div class="row wisdom-history-tools"><div class="field"><input id="wisdomHistorySearch" oninput="renderWisdomHistory()" placeholder="Search read and favourite pieces"/></div><label class="checklabel"><input id="wisdomFavoritesOnly" onchange="renderWisdomHistory()" type="checkbox"/> Favourites only</label></div>
+<div id="wisdomHistory"></div>
 </div>
+<div class="card"><h3>My saved resources</h3><div class="muted" id="resourceList">No custom resources yet.</div></div>
 </section>
-<section class="tab" id="tab-progress">
+<section class="tab" id="tab-progress"><div class="section-title"><h2>Progress &amp; review</h2></div><div class="button-row review-tabs"><button class="btn secondary" id="progressOverviewButton" onclick="setProgressMode('overview')">Overview</button><button class="btn ghost" id="progressReviewButton" onclick="setProgressMode('weekly')">Weekly review</button></div><div id="progressOverview">
 <div class="section-title"><h2>Progress</h2><small>consistency, balance, insight</small></div>
 <div class="grid2" id="progressStats"></div>
 <div class="card"><h3>Daily consistency</h3><div class="bars" id="dayBars"></div></div>
@@ -140,16 +158,25 @@
 <div class="card"><h3>Goals progress</h3><div id="goalProgress"></div></div>
 <div class="card"><h3>What the pattern says</h3><div class="insight" id="insight"></div></div>
 <div class="row"><button class="btn secondary" onclick="exportCSV()">Export CSV</button><button class="btn secondary" onclick="exportJSON()">Backup data</button></div>
-</section>
+</div><div class="hidden" id="weeklyReviewPanel">
+<div class="card"><div class="source">PAUSE · NOTICE · ADJUST</div><h3>A week worth learning from.</h3><p class="muted">Review the record, then choose what you will carry forward.</p><div class="review-date-row"><button aria-label="Previous week" class="btn ghost" onclick="stepReviewWeek(-1)">←</button><div class="field"><label for="reviewWeekDate">Choose any date in the week</label><input id="reviewWeekDate" onchange="selectReviewWeek(this.value)" type="date"/></div><button aria-label="Next week" class="btn ghost" id="reviewNextWeek" onclick="stepReviewWeek(1)">→</button></div><strong id="reviewWeekLabel"></strong><p class="tiny" id="reviewWeekNote"></p></div>
+<div class="grid2" id="weeklyReviewStats"></div><div id="weeklyReviewEvidence"></div>
+<div class="card"><h3>What will you take from this week?</h3>
+<div class="field"><label for="reviewHelped">What helped?</label><textarea id="reviewHelped" oninput="saveReviewDraft()" placeholder="A useful practice, a person, a small change…"></textarea><button class="btn ghost small" data-target="reviewHelped" onclick="startDictation('reviewHelped',this)">◉ Dictate</button><small id="reviewHelpedHint"></small></div>
+<div class="field"><label for="reviewObstacles">What got in the way?</label><textarea id="reviewObstacles" oninput="saveReviewDraft()" placeholder="Notice without judging yourself."></textarea><button class="btn ghost small" data-target="reviewObstacles" onclick="startDictation('reviewObstacles',this)">◉ Dictate</button><small id="reviewObstaclesHint"></small></div>
+<div class="field"><label for="reviewAdjustment">What will I adjust?</label><textarea id="reviewAdjustment" oninput="saveReviewDraft()" placeholder="One practical change is enough."></textarea><button class="btn ghost small" data-target="reviewAdjustment" onclick="startDictation('reviewAdjustment',this)">◉ Dictate</button><small id="reviewAdjustmentHint"></small></div>
+<div class="field"><label for="reviewFocus">A focus for next week</label><input id="reviewFocus" maxlength="280" oninput="saveReviewDraft()" placeholder="The one thing I want to keep in mind…"/></div>
+<div class="button-row"><button class="btn primary" onclick="finishWeeklyReview()">Save weekly review</button><button class="btn secondary" onclick="applyWeeklyFocus()">Use as next week's focus</button><button class="btn ghost" onclick="exportWeeklyReview()">Export review</button></div><p class="tiny" id="reviewSaveStatus" role="status"></p>
+</div><div class="card"><h3>Saved reviews</h3><div id="weeklyReviewHistory"></div></div>
+</div></section>
 <section class="tab" id="tab-gallery"><div class="section-title"><h2>Gallery</h2><small id="galleryCount"></small></div>
-<div class="card gallery-intro"><div><h3>A place to pause.</h3><p class="muted">Your original photographs seed this space. Add your own moments of light, water and life. Tap an image to view it uncropped, favourite it, or choose it as a page photograph.</p></div><label class="btn primary upload-label">＋ Add photos<input accept="image/jpeg,image/png,image/webp" hidden="" id="galleryUpload" multiple="" onchange="uploadPhotos(this.files);this.value=''" type="file"/></label></div>
-<div class="filter-row" id="galleryFilters"></div><p class="muted" id="galleryStatus" role="status"></p><div class="gallery-grid" id="galleryGrid"></div>
+<div class="card gallery-intro"><div><h3>A place to pause.</h3><p class="muted">Swipe through moments of light, water and life. Add photos, give them meaningful names, or let an image begin a journal reflection.</p></div><label class="btn primary upload-label">＋ Add photos<input accept="image/jpeg,image/png,image/webp" hidden="" id="galleryUpload" multiple="" onchange="uploadPhotos(this.files);this.value=''" type="file"/></label></div>
+<div class="filter-row" id="galleryFilters"></div><div class="field gallery-search"><label for="gallerySearch">Find a photograph</label><input id="gallerySearch" oninput="renderGallery()" placeholder="Search names, captions or tags…" type="search"/></div><p class="muted" id="galleryStatus" role="status"></p><div class="gallery-grid" id="galleryGrid"></div>
 <div class="card"><h3>Yours, on this device</h3><p class="muted">Personal uploads are stored in this browser, not uploaded to GitHub or a public gallery. Images are resized before storage. Keep the originals, and use a full backup before clearing site data or moving devices.</p><button class="btn ghost small" onclick="requestPersistence()">Ask browser to retain my data</button></div></section>
 <section class="tab" id="tab-help">
-<div class="section-title"><h2>Help &amp; FAQ</h2><small>Infinite Self v3.1</small></div>
+<div class="section-title"><h2>Help &amp; FAQ</h2><small>Infinite Self v3.4</small></div>
 <div class="card"><h3>Start with one intentional day.</h3><p class="muted">Run the optional setup or skip it. Name your journey, set four commitments, and add goals when useful. Today is for action; Journal is for noticing; Progress is for adjustment.</p><button class="btn primary" onclick="openSetup()">Run optional setup</button></div>
-<div class="card faq" id="faqList"></div><div class="card"><h3>Backups, restore &amp; export</h3><p class="muted">Manage full private backups, records-only backups, activity CSV and readable journal exports in Settings.</p><button class="btn secondary" onclick="openDataSettings()">Open Settings → Backup &amp; export</button></div>
-
+<div class="card"><h3>Gallery, weekly review &amp; routines</h3><p class="muted">Browse the v3.4 guide for the new connected workflows.</p><a class="btn secondary" href="V3_4_FEATURE_GUIDE.html" target="_blank" rel="noopener">Open new-feature guide</a></div><div class="card faq" id="faqList"></div><div class="card"><h3>Backups, restore &amp; export</h3><p class="muted">Manage full private backups, records-only backups, activity CSV and readable journal exports in Settings.</p><button class="btn secondary" onclick="openDataSettings()">Open Settings → Backup &amp; export</button></div>
 <div class="card"><h3>Guides &amp; diagnostics</h3><div class="help-links"><a class="help-link" href="QUICK_START.html" rel="noopener" target="_blank">Quick Start<small>All the everyday steps</small></a><a class="help-link" href="GITHUB_UPDATE_GUIDE.html" rel="noopener" target="_blank">GitHub update guide<small>Replace files safely</small></a><a class="help-link" href="ASSET_CHECK.html" rel="noopener" target="_blank">Image &amp; asset check<small>Verify every deployment file</small></a><a class="help-link" href="CHANGELOG.md" rel="noopener" target="_blank">What's new<small>Scope, fixes and limitations</small></a></div></div>
 </section>
 <section class="tab" id="tab-settings"><div class="section-title"><h2>Settings</h2><small>Your practice, your preferences</small></div>
@@ -160,6 +187,11 @@
 <div class="row"><div class="field"><label for="settingsMeditation">Default meditation</label><select id="settingsMeditation"></select></div><div class="field"><label for="settingsWisdom">Starting Wisdom category</label><select id="settingsWisdom"></select></div></div>
 <button class="btn primary" onclick="saveJourneySettings()">Save journey settings</button>
 <p class="muted">Changing a default does not interrupt a session already playing. Your next fresh launch uses the chosen meditation.</p></div>
+<div class="card" id="quoteSettings"><div class="section-title"><h3>Daily quotes</h3><small>Your own favourites join the rotation</small></div>
+<p class="muted">Infinite Self includes original daily reflections plus a small number of short sourced quotations. Add favourites from your own books or life here; they can appear as the Daily Quote on their date.</p>
+<div class="field"><label for="customQuoteText">Quote</label><textarea id="customQuoteText" placeholder="Add a favourite line"></textarea></div>
+<div class="row"><div class="field"><label for="customQuoteAuthor">Author / speaker</label><input id="customQuoteAuthor" placeholder="Name or Unknown"/></div><div class="field"><label for="customQuoteSource">Source / book</label><input id="customQuoteSource" placeholder="Book, speech, personal note..."/></div></div>
+<button class="btn secondary" onclick="addCustomQuote()">＋ Add to my quote library</button><div id="customQuoteList"></div></div>
 <div class="card" id="appearanceSettings"><div class="section-title"><h3>Appearance &amp; reading comfort</h3><button class="btn ghost small" onclick="resetAppearance()">Reset appearance</button></div>
 <p class="muted">Choose a palette or make your own. Backgrounds change; your photographs stay as they are. Preferences save automatically on this browser.</p>
 <div class="palette-grid" id="palettePresets"></div>
@@ -167,19 +199,52 @@
 <div class="field"><div class="speed-heading"><label for="fontScale">Text size</label><output for="fontScale" id="fontScaleValue">100%</output></div><input id="fontScale" max="150" min="90" oninput="setFontScale(this.value)" step="5" type="range" value="100"/><div class="size-actions"><button aria-label="Smaller text" class="btn ghost small" onclick="setFontScale(Number($('fontScale').value)-5)">A−</button><button class="btn secondary small" onclick="setFontScale(100)">Default · 100%</button><button aria-label="Larger text" class="btn ghost small" onclick="setFontScale(Number($('fontScale').value)+5)">A+</button></div></div>
 <div class="appearance-sample"><span class="source">YOUR READING PREVIEW</span><h3>A little more space to be yourself.</h3><p>Write honestly. Read comfortably. Let your practice meet you where you are.</p><button class="btn primary small" onclick="toast('This is a preview of your chosen appearance.')" type="button">Button preview</button></div>
 <p class="muted" id="appearanceStatus" role="status">Text colours adjust for readable contrast. External YouTube and SoundCloud players keep their own appearance.</p></div>
-<div class="card" id="backupSection"><h3>Backup, restore &amp; export</h3><p class="muted" id="backupSummary"></p><p class="muted" id="lastBackupNote"></p><p class="muted">A full backup contains your private journal, records, saved links and personal photos/audio. It is not encrypted. Keep it private. Sharing the app files does not share your entries.</p><div class="row"><button class="btn primary" onclick="exportJSON()">Full backup, including my media</button><button class="btn secondary" onclick="exportRecords()">Records-only backup</button></div><div class="row" style="margin-top:12px"><label class="btn ghost upload-label">Restore backup<input accept="application/json,.json" hidden="" id="restoreFile" onchange="restoreBackup(this.files[0]);this.value='' " type="file"/></label><button class="btn ghost" onclick="exportCSV()">Activity CSV</button></div><p class="muted" id="backupStatus" role="status"></p><div class="row"><button class="btn ghost" onclick="exportJournalText()">Export journal text (.txt)</button><button class="btn ghost" onclick="printJournal()">Print / save journal PDF</button></div><p class="muted">Full and records-only backups include your Guiding Intention, appearance and audio-speed preferences. Linked SoundCloud/YouTube recordings are not downloaded. Activity CSV excludes journal text; readable journal exports include it. Keep all personal exports out of GitHub.</p></div><div class="card danger-zone"><h3>Device data</h3><p class="muted">Deleting your records is permanent unless you have saved a backup.</p><button class="btn danger" onclick="resetAll()">Erase this device’s data</button></div></section></main>
+<div class="card" id="backupSection"><h3>Backup, restore &amp; export</h3><p class="muted" id="backupSummary"></p><p class="muted" id="lastBackupNote"></p><p class="muted">A full backup contains your private journal, records, saved links and personal photos/audio. It is not encrypted. Keep it private. Sharing the app files does not share your entries.</p><div class="row"><button class="btn primary" onclick="exportJSON()">Full backup, including my media</button><button class="btn secondary" onclick="exportRecords()">Records-only backup</button></div><div class="row" style="margin-top:12px"><label class="btn ghost upload-label">Restore backup<input accept="application/json,.json" hidden="" id="restoreFile" onchange="restoreBackup(this.files[0]);this.value='' " type="file"/></label><button class="btn ghost" onclick="exportCSV()">Activity CSV</button></div><p class="muted" id="backupStatus" role="status"></p><div class="row"><button class="btn ghost" onclick="exportJournalText()">Export journal text (.txt)</button><button class="btn ghost" onclick="printJournal()">Print / save journal PDF</button></div><p class="muted">Full and records-only backups include your Guiding Intention, appearance and audio-speed preferences. Linked SoundCloud/YouTube recordings are not downloaded. Activity CSV excludes journal text; readable journal exports include it. Keep all personal exports out of GitHub.</p><hr/><div id="safetySummary"></div><div class="button-row"><button class="btn ghost small" onclick="confirmBackupSaved()">I saved the latest backup file</button><button class="btn ghost small" onclick="refreshSafetyStorage()">Refresh storage estimate</button></div><p class="tiny" id="storageEstimate" role="status"></p><p class="tiny">This is a browser estimate, not a device-wide measurement. Exporting creates a download; it does not prove the file was saved or synced.</p><details><summary>Recently removed · restore or permanently delete</summary><div id="recentlyRemoved"></div></details></div><div class="card danger-zone"><h3>Device data</h3><p class="muted">Deleting your records is permanent unless you have saved a backup.</p><button class="btn danger" onclick="resetAll()">Erase this device’s data</button></div></section><section class="tab" id="tab-routines">
+<div class="section-title"><h2>Your routines</h2><button class="btn secondary small" onclick="editRoutine()">＋ Build a routine</button></div>
+<p class="muted">A gentle sequence, not another set of scores. Choose the steps that serve you; skip any step. Your writing, reading and meditation save in their existing homes.</p>
+<div id="routineTemplates"></div>
+<div class="card"><h3>Practice history</h3><p class="muted">Finished routines show practised and skipped steps separately. Editing a routine does not change a past run.</p><div id="routineHistory"></div></div>
+</section></main>
 </div>
 <div class="modal" id="commitModal"><div class="sheet"><button aria-label="Close dialog" class="close" onclick="closeCommitment()">×</button><h2 id="commitModalTitle">Commitment</h2><div class="field"><label for="cName">Name</label><input id="cName"/></div><div class="row"><div class="field"><label for="cCategory">Area</label><select id="cCategory"><option value="mental">Mental</option><option value="physical">Physical</option></select></div><div class="field"><label for="cMetric">Measure</label><select id="cMetric"><option>minutes</option><option>sessions</option><option>pages</option><option>steps</option><option>items</option><option value="check">done / not done</option></select></div></div><div class="row"><div class="field"><label for="cTarget">Target each time</label><input id="cTarget" min="1" type="number" value="20"/></div><div class="field"><label for="cFreq">Target days per week</label><input id="cFreq" max="7" min="1" type="number" value="7"/></div></div><div class="field"><label for="cNote">Optional note</label><input id="cNote"/></div><hr/><div class="section-title"><h3>Sub-branches</h3><button class="btn secondary small" onclick="addBranchEditor()">＋ Add branch</button></div><div id="branchEditors"></div><div class="row" style="margin-top:16px"><button class="btn primary" onclick="saveCommitment()">Save</button><button class="btn danger hidden" id="deleteCommitBtn" onclick="deleteCommitment()">Delete</button></div></div></div>
 <div class="modal" id="goalModal"><div class="sheet"><button aria-label="Close dialog" class="close" onclick="closeGoal()">×</button><h2 id="goalModalTitle">Goal</h2><div class="field"><label for="gTitle">Goal</label><input id="gTitle"/></div><div class="field"><label for="gWhy">Why it matters</label><textarea id="gWhy"></textarea></div><div class="row"><div class="field"><label for="gDate">Target date</label><input id="gDate" type="date"/></div><div class="field"><label for="gLinks">Link commitments</label><select id="gLinks" multiple="" size="5"></select><div class="tiny">Hold Ctrl / Cmd to choose more than one on desktop. On mobile, it's fine to leave this blank.</div></div></div><hr/><div class="section-title"><h3>Milestones</h3><button class="btn secondary small" onclick="addMilestoneEditor()">＋ Add milestone</button></div><div id="milestoneEditors"></div><div class="row" style="margin-top:16px"><button class="btn primary" onclick="saveGoal()">Save goal</button><button class="btn danger hidden" id="deleteGoalBtn" onclick="deleteGoal()">Delete</button></div></div></div>
 <div class="modal" id="resourceModal"><div class="sheet"><button aria-label="Close dialog" class="close" onclick="closeResource()">×</button><h2>Add resource</h2><div class="field"><label for="rCategory">Category</label><select id="rCategory"></select></div><div class="row"><div class="field"><label for="rType">Type</label><select id="rType"><option value="reading">Reading</option><option value="video">Video</option><option value="link">Link</option></select></div><div class="field"><label for="rTitle">Title</label><input id="rTitle"/></div></div><div class="field"><label for="rUrl">URL</label><input id="rUrl" placeholder="https://..."/></div><div class="field"><label for="rNote">Short note</label><textarea id="rNote"></textarea></div><button class="btn primary" onclick="saveResource()">Save resource</button></div></div>
 <div class="toast" id="toast" role="status"></div>
-<div aria-labelledby="composeHeading" aria-modal="true" class="modal" id="composeModal" role="dialog"><div class="sheet"><button aria-label="Close journal composer" class="close" onclick="closeCompose()">×</button><h2 id="composeHeading">Carry to Journal</h2><div class="muted" id="composeSource"></div><blockquote id="composePrompt"></blockquote>
+<div aria-labelledby="composeHeading" aria-modal="true" class="modal" id="composeModal" role="dialog"><div class="sheet"><button aria-label="Close journal composer" class="close" onclick="closeCompose()">×</button><h2 id="composeHeading">Carry to Journal</h2><div class="muted" id="composeSource"></div><div class="hidden compose-photo-box" id="composePhotoBox"><img alt="" id="composePhoto"/><label class="check-label"><input checked="" id="composePhotoOfDay" type="checkbox"/> Also use as this date's photo of the day</label></div><blockquote id="composePrompt"></blockquote>
 <div class="row"><div class="field"><label for="composeType">Where should this go?</label><select id="composeType"><option value="morning">Morning intention / meditation</option><option selected="" value="freeform">Freeform journal</option><option value="evening">Evening reflection</option></select></div><div class="field"><label for="composeDate">Entry date</label><input id="composeDate" type="date"/></div></div>
 <div class="field"><label for="composeText">Your response</label><textarea id="composeText" oninput="saveComposeDraft()" placeholder="What does this bring up for you?" rows="7"></textarea><div class="dictation-row"><button class="btn ghost small dictate-btn" data-target="composeText" onclick="startDictation('composeText',this)">◉ Dictate</button><span class="dictate-hint" id="composeTextHint"></span></div></div><div class="row"><button class="btn primary" onclick="postCompose()">Save to Journal</button><button class="btn ghost" onclick="closeCompose()">Keep draft &amp; close</button></div><p class="muted">Appends the prompt and your response. Existing journal writing is not replaced.</p></div></div>
 <div aria-labelledby="clipHeading" aria-modal="true" class="modal" id="clipModal" role="dialog"><div class="sheet"><button aria-label="Close audio link form" class="close" onclick="closeDialog('clipModal')">×</button><h2 id="clipHeading">Save an audio link</h2><div class="field"><label for="clipTitle">Your title</label><input id="clipTitle" maxlength="160" placeholder="My favourite meditation"/></div><div class="field"><label for="clipURL">Track or video URL</label><input id="clipURL" placeholder="https://soundcloud.com/artist/track or https://youtu.be/..." type="url"/></div><p class="muted">Use the full address of one SoundCloud track or YouTube video. Private, restricted or unavailable recordings may not play here.</p><button class="btn primary" onclick="saveClip()">Save clip</button></div></div>
-<div aria-labelledby="photoTitle" aria-modal="true" class="modal photo-modal" id="photoModal" role="dialog"><div class="sheet"><button aria-label="Close photograph" class="close" onclick="closeDialog('photoModal')">×</button><h2 id="photoTitle">Photograph</h2><img alt="" class="photo-full" id="photoFull"/><p class="muted" id="photoCaption"></p><div class="row"><button class="btn secondary" id="favoriteButton" onclick="togglePhotoFavorite()">Favourite</button><button class="btn ghost" onclick="downloadCurrentPhoto()">Save a copy</button><button class="btn danger hidden" id="deletePhotoButton" onclick="deleteCurrentPhoto()">Delete my upload</button></div><div class="row photo-use"><select aria-label="Page to use this photo" id="photoPage"><option value="journal">Journal</option><option value="today">Today</option><option value="meditation">Meditation</option><option value="wisdom">Wisdom</option><option value="goals">Goals</option><option value="progress">Progress</option></select><button class="btn primary" onclick="useCurrentPhoto()">Use on this page</button></div></div></div>
-<aside aria-label="Current meditation" class="media-dock hidden" id="mediaDock"><div class="dock-video hidden" id="dockVideo"><div id="youtubeMount"></div></div><div class="dock-soundcloud hidden" id="dockSoundCloud"></div><div class="dockbar"><div class="dock-info"><strong id="dockTitle">Meditation</strong><span id="dockClock">10:00</span><small id="dockStatus">Ready</small></div><button class="btn secondary small" id="dockPlay" onclick="toggleMeditation()">Play</button><button class="btn ghost small" onclick="endMeditation()">End</button></div><div class="dock-message hidden" id="youtubeStatus"></div><div class="dock-message hidden" id="soundcloudStatus">SoundCloud · internet required. Tap the player’s play button when prompted.</div></aside>
-<audio id="globalAudio" playsinline="" preload="metadata"></audio>
+<div aria-labelledby="photoTitle" aria-modal="true" class="modal photo-modal" id="photoModal" role="dialog"><div class="sheet photo-sheet"><button aria-label="Close photograph" class="close" onclick="closeDialog('photoModal')">×</button>
+<div class="source">YOUR GALLERY</div><h2 id="photoTitle">Photograph</h2>
+<div aria-label="Photograph viewer. Swipe horizontally or use the arrow buttons." class="photo-stage" id="photoStage" tabindex="0"><img alt="" class="photo-full" draggable="false" id="photoFull"/></div>
+<div class="photo-nav"><button aria-label="Previous photograph" class="btn ghost" id="photoPrev" onclick="movePhoto(-1)">← Previous</button><span aria-live="polite" id="photoPosition"></span><button aria-label="Next photograph" class="btn ghost" id="photoNext" onclick="movePhoto(1)">Next →</button></div>
+<p class="photo-caption" id="photoCaption"></p><p class="tiny" id="photoCredit"></p>
+<div class="button-row"><button class="btn secondary" id="favoriteButton" onclick="togglePhotoFavorite()">♡ Favourite</button><button class="btn ghost" onclick="togglePhotoEditor()">Edit details</button><button class="btn ghost" onclick="downloadCurrentPhoto()">Save a copy</button></div>
+<form class="photo-details hidden" id="photoDetailsForm" onsubmit="event.preventDefault();savePhotoDetails()">
+<div class="field"><label for="photoNameEdit">Name in Infinite Self</label><input id="photoNameEdit" maxlength="140" required=""/></div>
+<div class="field"><label for="photoCaptionEdit">Caption (optional)</label><textarea id="photoCaptionEdit" maxlength="1500" placeholder="What does this moment mean to you?" rows="3"></textarea></div>
+<div class="field"><label for="photoTagsEdit">Tags, separated by commas (optional)</label><input id="photoTagsEdit" maxlength="400" placeholder="calm, ocean, gratitude"/></div>
+<p class="tiny">Changes rename this app's copy only. The original file on your device stays unchanged.</p><div class="button-row"><button class="btn primary" type="submit">Save details</button><button class="btn ghost" onclick="togglePhotoEditor(false)" type="button">Cancel</button></div><p class="tiny" id="photoEditStatus" role="status"></p>
+</form>
+<hr/><div class="button-row"><button class="btn primary" onclick="reflectOnPhoto()">✎ Reflect on this image</button><button class="btn ghost" onclick="togglePhotoDayPicker()">Photo of the day</button></div>
+<div class="hidden inset-panel" id="photoDayPicker"><div class="field"><label for="photoDayDate">Journal date</label><input id="photoDayDate" type="date"/></div><button class="btn secondary" onclick="attachPhotoToDay()">Use for this journal date</button></div>
+<div class="row photo-use"><select aria-label="Page to use this photo" id="photoPage"><option value="journal">Journal</option><option value="today">Today</option><option value="meditation">Meditation</option><option value="wisdom">Wisdom</option><option value="goals">Goals</option><option value="progress">Progress</option><option value="routines">Routines</option></select><button class="btn secondary" onclick="useCurrentPhoto()">Use as page photograph</button></div>
+<button class="btn danger small hidden" id="deletePhotoButton" onclick="deleteCurrentPhoto()">Remove my upload</button>
+</div></div>
+<aside aria-label="Current meditation" class="media-dock hidden" id="mediaDock">
+<button aria-label="Show meditation player" class="dock-restore-tab" id="dockRestore" onclick="restoreMediaDock()"><span aria-hidden="true">◀</span><small id="dockRestoreClock">10:00</small></button>
+<div class="dock-shell">
+<div class="dock-drag-zone" id="dockDragZone"><span aria-hidden="true" class="dock-grip">•••</span><span class="dock-drag-copy">Swipe right to tuck away</span><button aria-label="Hide meditation player" class="btn ghost small dock-hide" onclick="event.stopPropagation();shelveMediaDock()">Hide</button></div>
+<div class="dock-video hidden" id="dockVideo"><div id="youtubeMount"></div></div><div class="dock-soundcloud hidden" id="dockSoundCloud"></div><div class="dockbar"><div class="dock-info"><strong id="dockTitle">Meditation</strong><span id="dockClock">10:00</span><small id="dockStatus">Ready</small></div><button class="btn secondary small" id="dockPlay" onclick="toggleMeditation()">Play</button><button class="btn ghost small" onclick="endMeditation()">End</button></div><div class="dock-message hidden" id="youtubeStatus"></div><div class="dock-message hidden" id="soundcloudStatus">SoundCloud · internet required. Tap the player’s play button when prompted.</div>
+</div></aside>
+<audio id="globalAudio" playsinline="" preload="metadata"></audio><audio id="gongAudio" preload="auto" src="gong-v32.wav"></audio>
 <div aria-live="polite" class="sr-only" id="liveRegion"></div>
-<script src="app-v31.js"></script></body>
+<div aria-labelledby="routineEditorTitle" aria-modal="true" class="modal" id="routineEditorModal" role="dialog"><div class="sheet">
+<button aria-label="Close routine editor" class="close" onclick="closeRoutineEditor()">×</button><div class="source">ROUTINE BUILDER</div><h2 id="routineEditorTitle">Your practice, in your order.</h2>
+<div class="field"><label for="routineName">Routine name</label><input id="routineName" maxlength="100" placeholder="My morning practice" required=""/></div>
+<div class="row"><div class="field"><label for="routineSlot">When does this fit?</label><select id="routineSlot"><option value="morning">Morning</option><option value="evening">Evening</option><option value="anytime">Anytime</option></select></div><div class="field"><label for="routineNote">A reminder to yourself (optional)</label><input id="routineNote" maxlength="280" placeholder="Start gently. Give it my attention."/></div></div>
+<p class="muted">Add, rename, move or remove steps. Uncheck a step to leave it out. During a run you can skip any step; nothing is logged just by opening it.</p>
+<div id="routineStepEditor"></div><button class="btn secondary" onclick="addRoutineStep()">＋ Add a step</button><hr/>
+<div class="button-row"><button class="btn primary" onclick="saveRoutineTemplate()">Save routine</button><button class="btn ghost" onclick="closeRoutineEditor()">Cancel</button><button class="btn danger hidden" id="deleteRoutineButton" onclick="deleteRoutineTemplate()">Delete routine</button></div><p class="tiny" id="routineEditorStatus" role="status"></p>
+</div></div><script src="app-v34.js"></script><script src="features-v34.js"></script></body>
 </html>

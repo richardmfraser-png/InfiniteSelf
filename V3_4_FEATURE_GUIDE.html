@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gallery, review and routine builder — Infinite Self v3.4</title><style>
+:root{color-scheme:light;--ink:#153b52;--muted:#526f80;--line:#cbdee9;--blue:#155982}
+*{box-sizing:border-box}body{margin:0;background:#f1f7fa;color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}header,main,footer{max-width:940px;margin:auto;padding:24px}header{padding-top:42px}header .brand{font-size:12px;letter-spacing:.16em;font-weight:700;text-transform:uppercase}h1{font:42px/1.15 Georgia,serif;margin:15px 0}h2{font:28px/1.25 Georgia,serif;margin:38px 0 14px}h3{font-size:19px;margin:25px 0 8px}p,li{max-width:78ch}main{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:0 10px 30px #17374708}main>h1:first-child{font-size:30px}nav{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}nav a,.button{border:1px solid var(--line);border-radius:22px;padding:7px 12px;text-decoration:none;font-size:13px;background:#fff;color:var(--ink)}a{color:var(--blue);text-underline-offset:3px}a:focus-visible,button:focus-visible{outline:3px solid #b88b27;outline-offset:3px}blockquote{margin:20px 0;padding:14px 18px;border-left:4px solid #b89b53;background:#f7f4e9;border-radius:0 12px 12px 0}blockquote p{margin:0}table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}td,th{padding:12px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#edf5f9}code{font-family:ui-monospace,Consolas,monospace;font-size:.91em;background:#edf4f7;border-radius:4px;padding:2px 5px;overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf4f7;padding:16px;border-radius:12px}pre code{padding:0}footer{font-size:13px;color:var(--muted)}.lede{font-size:18px;color:var(--muted)}hr{border:0;border-top:1px solid var(--line);margin:28px 0}img{max-width:100%}@media(max-width:640px){header,main,footer{padding:20px}main{margin:0 10px}h1{font-size:34px}table{display:block;overflow-x:auto}}@media print{body{background:#fff;font-size:11pt}header{padding:0 0 16px}main{border:0;box-shadow:none;padding:0}nav{display:none}h2{break-after:avoid}p,li{orphans:3;widows:3}footer{padding:16px 0}}
+</style></head><body><header><div class="brand">∞ Infinite Self · v3.4</div><h1>Gallery, review and routine builder</h1><p class="lede">A practical guide to the new v3.4 workflows</p><nav aria-label="Guide navigation"><a href="index.html">Open app</a><a href="START_HERE.html">Start here</a><a href="GITHUB_UPDATE_GUIDE.html">Update GitHub</a><a href="QUICK_START.html">Quick Start</a><a href="V3_4_FEATURE_GUIDE.html">New features</a><a href="ASSET_CHECK.html">Check deployment</a></nav></header><main><h2>1. Gallery: browse, name and remember</h2>
+<p>Tap a tile to open the uncropped image. Swipe <strong>over the photograph</strong> left/right, use the buttons, or use the keyboard arrows. The counter shows your position within the filter/search used when you opened the viewer. Browsing Favourites does not switch to the entire library. At either end, navigation stops rather than wrapping unexpectedly. Vertical scrolling and two-finger gestures are not intentionally treated as gallery swipes.</p>
+<p><strong>Edit details</strong> allows a title, caption and comma-separated tags. The title is stored against a stable photo ID, so favourites and chosen page backgrounds keep pointing to the same image. Renaming is per-device app metadata—it does not change the original file in Photos or Files. Save a copy proposes your title as the new JPEG download filename; the browser handles the final save.</p>
+<p>Gallery search covers names, captions and tags. Built-in category filters, Favourites and My uploads remain available. This version does not add a separate shared-gallery service or full custom-album system.</p>
+<h3>Local uploads</h3>
+<p>Upload JPEG, PNG or WebP images, up to 20 MB per original, within the existing limit of 80 personal photographs. Infinite Self resizes and stores a JPEG copy up to 1600 pixels on the long side. Keep originals. No uploaded photograph is automatically committed to GitHub or sent to a public gallery.</p>
+<h2>2. Photo-to-Journal</h2>
+<p>Choose <strong>Reflect on this image</strong>. Select the intended journal date and entry type, then write or dictate. The caption becomes a starting prompt; without one, the app offers a neutral reflection question.</p>
+<p><strong>Save to Journal</strong> appends rather than replaces the selected field. It retains a source card with the photo title, thumbnail where available, and <strong>View photo</strong>. It can also attach the photograph as that date’s photo of the day. Photos can be attached without a reflection through the viewer’s <strong>Photo of the day</strong> control.</p>
+<p>A Journal date supports one photo of the day and can retain multiple photo-reflection source links. Changing or detaching the daily photograph does not delete the image or your writing. If a local image is missing, the source title and writing remain; restore a full backup containing the image to view it again.</p>
+<h2>3. Weekly review and reset</h2>
+<p>Open <strong>Progress → Weekly review</strong>. Choose any day to select its Monday–Sunday week. Previous/Next moves by a week; future weeks are not retrospectively marked complete.</p>
+<table>
+<thead>
+<tr>
+  <th>Evidence</th>
+  <th>How to read it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>My 3</td>
+  <td>Filled priorities only form the denominator; blank placeholders do not count. Future priorities remain planned.</td>
+</tr>
+<tr>
+  <td>Journal days</td>
+  <td>Days containing writing or a photo of the day.</td>
+</tr>
+<tr>
+  <td>Meditation</td>
+  <td>Minutes from saved sessions, not activity-log rows added a second time.</td>
+</tr>
+<tr>
+  <td>Readings</td>
+  <td>Saved read marks in the date range.</td>
+</tr>
+<tr>
+  <td>Commitments</td>
+  <td>Days meeting each amount target, grouped under the parent. Different units are not added together. Current target settings are applied to old activity.</td>
+</tr>
+<tr>
+  <td>Milestones</td>
+  <td>Only milestones with a recorded completion date are attributed to the week. Older undated completions are not assigned invented dates.</td>
+</tr>
+<tr>
+  <td>Routines</td>
+  <td>Finished runs, practised steps and skipped steps are shown separately.</td>
+</tr>
+</tbody>
+</table>
+<p>Current-week figures are explicitly partial. Goal totals are labelled as current totals, not recreated historical snapshots. Correcting a dated activity updates the displayed evidence.</p>
+<p>Write or dictate responses to the three review prompts. Drafts save locally. <strong>Save weekly review</strong> records the reviewed time and a summary snapshot. <strong>Use as next week’s focus</strong> sends the focus to the following week’s Today view, with confirmation before replacing an existing focus. These are deliberate actions; simply visiting the review does not claim you completed it.</p>
+<p>Saved reviews are available below the form. Export creates a readable text file. Review dates can be revisited and edited.</p>
+<h2>4. Routine builder</h2>
+<p>Two editable templates are seeded for accounts without routines:</p>
+<p><strong>Morning practice:</strong> guiding intention → meditation → Wisdom → morning journal → My 3.</p>
+<p><strong>Evening reset:</strong> evening reflection → plan the following day’s My 3 → a short meditation.</p>
+<h3>Make a routine yours</h3>
+<p>In Routines, choose Edit or Build a routine. Set its name, morning/evening/anytime label and reminder. A routine supports up to twelve steps. Choose among:</p>
+<ul>
+<li>Guiding intention: opens its existing Settings editor.</li>
+<li>Meditation: choose an available sound and a duration from 1–180 minutes.</li>
+<li>Wisdom reading: choose a category.</li>
+<li>Journal: choose Morning, Freeform or Evening.</li>
+<li>My 3: use the routine’s date or the following date.</li>
+<li>My own practice: name a personal action and give it optional instructions.</li>
+</ul>
+<p>Move steps with the up/down controls, uncheck to leave one out, or remove it. Save the template. Changes apply to the next run, not to earlier history or an already-started run.</p>
+<h3>Use the guide</h3>
+<p>Tap <strong>Begin this practice</strong> from Today or Routines. The guide opens the appropriate existing page; it is not a new form that duplicates records. <strong>Open step</strong> returns you there after browsing elsewhere. <strong>Done &amp; next</strong> records the step’s completion; <strong>Skip</strong> records that you chose not to do it. Opening a screen alone never claims completion.</p>
+<p>A Journal step uses the usual date/field. A Wisdom step uses the reading shown for that run; after all pieces in a category are read, it can open an existing piece for review without manufacturing a second read mark. A priority step requires at least one filled priority, not three invented tasks. A custom step is self-confirmed, not sensor-verified.</p>
+<p>A meditation step needs a saved session of at least five seconds. The timer still uses the normal recorder and selected commitment-credit option. Ending early saves the actual minutes and displays them against planned minutes; the app does not pretend the full duration was completed. Pressing Done &amp; next does not log a second session.</p>
+<h3>Pause, resume and dates</h3>
+<p>Only one routine run can be active or paused. <strong>Pause</strong> retains your place and pauses a linked running meditation. <strong>Resume</strong> is available after reloading. <strong>End run</strong>, in its history entry, retains what you did without claiming completion of the whole sequence.</p>
+<p>A run begins on the real current date, regardless of the date simulated in Daily View. If you resume on another day, its Journal and My 3 steps retain the original run date (or next-date offset); a live meditation uses its actual saved date. Routines are not alarms, push notifications or automatic background schedulers.</p>
+<p>A finished routine may contain skipped steps. History distinguishes these from practised steps. Changing or removing a template keeps the original run snapshot.</p>
+<h2>5. Backup safety and Undo</h2>
+<p>Settings has three deliberately distinct pieces of information: <strong>last full-backup download initiated</strong>, <strong>saved changes since that full backup</strong>, and <strong>last backup you confirmed saving</strong>. A browser download is not proof that you stored the file safely.</p>
+<p>The in-app reminder appears when there is new material and a full backup is absent/older, or enough saved record/media changes have accumulated. It can be snoozed until the following day. It is not a push notification and does not back up automatically.</p>
+<p><strong>Full backup</strong> includes Journal, photo titles/captions/tags, uploaded image/audio blobs, goals, routines and run history, weekly reviews/focus, settings, and Recently removed. <strong>Records-only backup</strong> omits uploaded media and does not reset the full-backup reminder. The legacy full-backup format and restore controls are retained.</p>
+<p>Removed photo/activity entries can be restored from Undo or <strong>Settings → Backup &amp; export → Recently removed</strong>. Photo blobs are kept while removed; this uses space and is included in full backups. <strong>Delete permanently</strong> removes that recovery option locally. Existing private backup files may still contain the removed item.</p>
+<p>Browser storage estimates cover the site origin and can include other stored content; they are not an exact size of Journal alone. A storage-retention request is browser-controlled and is not a substitute for your own backup.</p>
+<h2>Continuity and limits</h2>
+<p>This release retains the name, blue/ocean visual direction, fourteen seed photographs, photographic icon, optional onboarding, historical Daily View, quotes, gong, existing media libraries, dictation, settings and data keys. Basic photo tags/search are included; there is no account, cloud sync or scheduled reminder service.</p>
+<p>SoundCloud and native media retain the tuck-away dock within the app. YouTube is paused while its video is hidden, including a tucked dock or modal, and must be visible again before playing. Phone-lock/background behaviour and embedded-service availability still need testing on your device. Typing leaves media intact; dictation may pause it.</p>
+<p>See <a href="VERIFICATION.md">VERIFICATION.md</a> for exactly what was tested and what used test adapters.</p>
+</main><footer>Local-first. Your writing is yours. Keep a private full backup before updating, clearing browser data or moving devices.</footer></body></html>

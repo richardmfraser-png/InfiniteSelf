@@ -1,0 +1,212 @@
+{
+  "app": "Infinite Self",
+  "version": "3.4.0",
+  "description": "Root-flat GitHub Pages upgrade; no personal records included",
+  "required": [
+    {
+      "name": "ASSET_CHECK.html",
+      "bytes": 5696,
+      "sha256": "5a7b3bd915b93ef7a08151547bc7d4498e4725ce7aa74e26fba740352e512df2"
+    },
+    {
+      "name": "CHANGELOG.md",
+      "bytes": 2490,
+      "sha256": "e148e6f82cfbbcb4a7ee03a778c304724f1f391a213450fb98a255a168641773"
+    },
+    {
+      "name": "GITHUB_UPDATE_GUIDE.html",
+      "bytes": 7785,
+      "sha256": "041ccf8cbfa441009bb23116529b40202920b2040f8816875dbf58041a5a4813"
+    },
+    {
+      "name": "GITHUB_UPDATE_GUIDE.md",
+      "bytes": 4275,
+      "sha256": "e07fc4adf65fbf7653fbb29c662675658bdcfda3a61bd6ed9459d6f54fae0afb"
+    },
+    {
+      "name": "QUICK_START.html",
+      "bytes": 7093,
+      "sha256": "203c30d9a80ce1a9cddb5ac729e54d75ae6c76db49f7e386abd8671374d76c75"
+    },
+    {
+      "name": "QUICK_START.md",
+      "bytes": 3620,
+      "sha256": "21785208893ecaee0d53fdf5c4ee09a955fdbb4ebb24f4856d5748419cb14933"
+    },
+    {
+      "name": "README.md",
+      "bytes": 3088,
+      "sha256": "83761bf5f046580c3a0b535b85a134a32964f665e7621876dc15d808b03941db"
+    },
+    {
+      "name": "START_HERE.html",
+      "bytes": 5024,
+      "sha256": "3d73bf02b3a92ef40bb8984bf1eaf6946ef1c7cbcd548bb71c92e90f9b9cf899"
+    },
+    {
+      "name": "START_HERE.md",
+      "bytes": 1766,
+      "sha256": "f8cb4b8f105250e1e59b740303641e7567cef9c9664e1bf6074eccad2aee0fe6"
+    },
+    {
+      "name": "TECHNICAL_NOTES.md",
+      "bytes": 6047,
+      "sha256": "1c866c034536fb2cf1d95e1220f014b113bd4b4b4813cb55c4931a15ad5fd0ae"
+    },
+    {
+      "name": "V3_4_FEATURE_GUIDE.html",
+      "bytes": 12861,
+      "sha256": "21e022ee25c3390db0d0c39a261bfb0e63e79943dafb6067c54a9d9adb83f1f3"
+    },
+    {
+      "name": "V3_4_FEATURE_GUIDE.md",
+      "bytes": 8997,
+      "sha256": "09526c934bc1430be91e774a41fff9585f9424a004643f191f82d4d88c7cd3cb"
+    },
+    {
+      "name": "VERIFICATION.md",
+      "bytes": 6316,
+      "sha256": "c1c233c1a9111db42824a73ce1f972297cabc6414b9daa338bfee4839c54fa02"
+    },
+    {
+      "name": "app-v34.js",
+      "bytes": 166891,
+      "sha256": "02b99ca09fec1076319f8712dca484b9f46dbac28aae78d9e43becf2bfd4a887"
+    },
+    {
+      "name": "apple-touch-icon.png",
+      "bytes": 65038,
+      "sha256": "cff1807e77840111cd903e756ac25b98f65e1c60178661cbab5c2ef9e5ada9a1"
+    },
+    {
+      "name": "blossoms-v3.jpg",
+      "bytes": 679016,
+      "sha256": "0eca4b90fb79c202a61ba66bef32bf05304ae657f82351c4caf1f8bf54edb183"
+    },
+    {
+      "name": "bluewater-v3.jpg",
+      "bytes": 133688,
+      "sha256": "b0f64b208614507bbce3b48693342ea4b4a8c955774b95ba966e8f7aee571e95"
+    },
+    {
+      "name": "candles-v3.jpg",
+      "bytes": 188082,
+      "sha256": "672eae40994d51425f77227beda6173d251c58fa6525bd44bca6455fd6069465"
+    },
+    {
+      "name": "clouds-v3.jpg",
+      "bytes": 158837,
+      "sha256": "6dcb7aca69e943a52c8beb39f443eb64787b111f1d800627b602c1ba63d4bd6f"
+    },
+    {
+      "name": "evening-v3.jpg",
+      "bytes": 268502,
+      "sha256": "6910d56e135cc60c19442089c09b1b1512ed3438ac4e6b2c3a33dfae63d0e3ac"
+    },
+    {
+      "name": "feature-v3.jpg",
+      "bytes": 68226,
+      "sha256": "1bcd0bdc1438b3a61b01bd801a03c7d27257e42dbbc19c6163773c5b5513d387"
+    },
+    {
+      "name": "features-v34.js",
+      "bytes": 70150,
+      "sha256": "670ea4eb0488e8d7b9844db90b96867a1cf9814ffaefdca0f93a129e93228053"
+    },
+    {
+      "name": "foamsun-v3.jpg",
+      "bytes": 303685,
+      "sha256": "ca27a0278697e2ddda3b8016ef365726c814415d109bea6f2df1e0114e6c3be2"
+    },
+    {
+      "name": "forestlight-v3.jpg",
+      "bytes": 318600,
+      "sha256": "dd81199ad6ecdd5b6a46838a030cc3b314334cc6a84aa2bf6360ef86e9373132"
+    },
+    {
+      "name": "goldsea-v3.jpg",
+      "bytes": 422575,
+      "sha256": "231ee828cd868391ce95b9a1e5f7d919eaa2352817a1db2f5c7825cb05295046"
+    },
+    {
+      "name": "gong-v32.wav",
+      "bytes": 485144,
+      "sha256": "679c79874d1f813a057df48de94ab4d089bd7ab7a3c8b19ac80fb47eb5a88aad"
+    },
+    {
+      "name": "horizon-v3.jpg",
+      "bytes": 223279,
+      "sha256": "135bf566fa476a40c2eb5ef6cd5010aca5a07687540f23653fbfcaf62bc4fb28"
+    },
+    {
+      "name": "index.html",
+      "bytes": 43097,
+      "sha256": "7c46e22d3da3c98490e0dd9b61a756f3f093fa88d56285d4173b391c32bf719c"
+    },
+    {
+      "name": "infinite-self-apple-v3.png",
+      "bytes": 65038,
+      "sha256": "cff1807e77840111cd903e756ac25b98f65e1c60178661cbab5c2ef9e5ada9a1"
+    },
+    {
+      "name": "infinite-self-icon-192-v3.png",
+      "bytes": 73838,
+      "sha256": "71860bc6501bbfa8fc6b8de3d94fc51ed567e44e5734b62e57797b264773a929"
+    },
+    {
+      "name": "infinite-self-icon-512-v3.png",
+      "bytes": 424391,
+      "sha256": "ec7742198a021e9ea807b20781b31648a475956a728d94f2c6c28f90b40a1a0a"
+    },
+    {
+      "name": "manifest-v34.webmanifest",
+      "bytes": 681,
+      "sha256": "76e629d0a7ae402cf81db7a24882b73c7159230d03eb209b270dd2cf2d84a8a0"
+    },
+    {
+      "name": "ocean-v3.mp3",
+      "bytes": 480696,
+      "sha256": "078ecfdb9f2cf00759f111cbc343b241ae721a9a4e62518fdbf4b460ba125221"
+    },
+    {
+      "name": "photos-v3.json",
+      "bytes": 2721,
+      "sha256": "e967c9204a10d014c12aaf64935f602270e364ab9b002030a259104774ce798e"
+    },
+    {
+      "name": "service-worker.js",
+      "bytes": 4219,
+      "sha256": "579667100a8679c88062034230c4236f99ce84ef404d805428ef8215352844b6"
+    },
+    {
+      "name": "sky-v3.jpg",
+      "bytes": 148135,
+      "sha256": "97269ef6648ab4818d1fcbc11e8ed0eb49fbf1ce63b43c0944d800ee0ac05a10"
+    },
+    {
+      "name": "soft-bell-v3.mp3",
+      "bytes": 480696,
+      "sha256": "eb1ca6b36dfdb6cefea2df46a15ada8cabd215feb3af4d4e03cf01f52e004788"
+    },
+    {
+      "name": "spray-v3.jpg",
+      "bytes": 243162,
+      "sha256": "867061ef1729a3973233f8edf17d3658a7895bd59e0001ea30e86a49d4e2d569"
+    },
+    {
+      "name": "stones-v3.jpg",
+      "bytes": 162794,
+      "sha256": "628a6b8b6e8255292a964c9b13cd8bf0a1628775254d99cd15ffcf07acba1d40"
+    },
+    {
+      "name": "style-v34.css",
+      "bytes": 49154,
+      "sha256": "1d10ccfbfd66eccf572497d3d74f07b33f635ddfa995333a25e7ee2f91176dab"
+    },
+    {
+      "name": "wavewide-v3.jpg",
+      "bytes": 277535,
+      "sha256": "4bf6ae8ad46abf7525a92f5682cee603320306ea0d2238b5c36b6758f40a0cd4"
+    }
+  ]
+}
